@@ -136,21 +136,24 @@ Start Node: B.Tech AI & Data Science -> Goal Node: Data Scientist
 
 ---
 
-## 🤖 7. Generative AI Integration (Google Gemini)
+## 🤖 7. Technical Assessment & Generative AI Integration
 
-All Gemini interactions are strictly isolated on the backend (`server/ai/geminiClient.js`). The React client communicates with the server via structured REST endpoints:
+The mock assessment engine provides an interactive, randomized evaluation platform designed for academic testing:
 
-1. **MCQ Generation (`POST /api/interview/generate`)**:
-   - Synthesizes role-aligned questions covering required topics (e.g., *Cross-Validation, L1 vs L2 regularization, p-values, SQL Joins*).
-   - Enforces strict JSON schemas containing question text, 4 options (A, B, C, D), correct option, topic tag, and difficulty.
-2. **Answer & Explanation Evaluation (`POST /api/interview/evaluate`)**:
-   - Compares the candidate's selected option against the correct answer.
-   - Evaluates the candidate's natural language reasoning in the optional explanation text box.
-   - Diagnoses mental models: identifies correct guesses with faulty logic or incorrect choices with near-miss intuition.
-3. **Diagnostic Report Card (`POST /api/interview/submit`)**:
+1. **Curated 180-Question Technical Bank (`server/data/fallbackQuestions.json`)**:
+   - Contains **30 comprehensive multiple-choice questions** for each of the 6 career roles (180 questions total).
+   - **Fisher-Yates Shuffle on Every Access**: Both question ordering and the 4 options (A, B, C, D) are shuffled dynamically, uniformly balancing correct answer positions and preventing memorization.
+   - **Fast Assessment Modes**: Candidates can select **5 Questions (Fast Practice)**, **10 Questions (Standard Mock)**, or **15 Questions (Comprehensive)**.
+   - **Career Pathway Gating**: The mock interview unlocks once a target job role is selected in the Career Path Finder. If accessed beforehand, the user is seamlessly guided to select their course and role first.
+
+2. **Dual Answer & Explanation Evaluation (`POST /api/interview/evaluate`)**:
+   - Compares the candidate's selected option against the dynamically remapped correct answer.
+   - **Google Gemini Semantic Evaluation**: Analyzes the candidate's natural language reasoning in the optional explanation text box to verify genuine conceptual grasp vs. lucky guesses.
+
+3. **Performance Diagnostics & History (`POST /api/interview/submit`)**:
    - Computes overall accuracy and topic-wise mastery.
-   - Flags weak topics (< 60% accuracy).
-   - Generates personalized mentor recommendations and a revision checklist.
+   - Flags weak topics (< 60% accuracy) and provides targeted study recommendations.
+   - Persists past attempts for ongoing review in **Past Reports**.
 
 ---
 
@@ -175,39 +178,40 @@ ai-interview-preparation-system/
 │   │   ├── interviewController.js # Assessment generator & evaluator
 │   │   └── historyController.js   # Assessment history handler
 │   ├── data/
-│   │   ├── careerGraph.json       # Graph nodes, edges, difficulty weights
-│   │   ├── courses.json           # Available academic degrees
-│   │   ├── jobRoles.json          # Job roles, topics, required skills
-│   │   ├── fallbackQuestions.json # Offline guaranteed question bank
-│   │   └── history.json           # Assessment attempts persistence
-│   ├── routes/                    # REST route endpoints
-│   └── search/                    # PURE JAVASCRIPT SEARCH IMPLEMENTATIONS
-│       ├── graph.js               # Adjacency list & path cost calculations
-│       ├── heuristic.js           # Admissible h(n) heuristic provider
-│       ├── priorityQueue.js       # Min-Heap Priority Queue implementation
-│       ├── bfs.js                 # Breadth-First Search
-│       ├── dfs.js                 # Depth-First Search
-│       ├── uniformCostSearch.js   # Uniform Cost Search
-│       ├── greedyBestFirst.js     # Greedy Best-First Search
-│       ├── aStar.js               # A* Search [f(n) = g(n) + h(n)]
-│       └── searchComparator.js    # Multi-algorithm benchmark executor
+│   │   ├── careerGraph.json         # Graph nodes, edges, difficulty weights
+│   │   ├── courses.json             # Available academic degrees
+│   │   ├── jobRoles.json            # Job roles, topics, required skills
+│   │   ├── fallbackQuestions.json   # 180 curated questions (30 per role)
+│   │   ├── generateQuestionsBank.js # Question bank generation & verification
+│   │   └── history.json             # Assessment attempts persistence
+│   ├── routes/                      # REST route endpoints
+│   └── search/                      # PURE JAVASCRIPT SEARCH IMPLEMENTATIONS
+│       ├── graph.js                 # Adjacency list & path cost calculations
+│       ├── heuristic.js             # Admissible h(n) heuristic provider
+│       ├── priorityQueue.js         # Min-Heap Priority Queue implementation
+│       ├── bfs.js                   # Breadth-First Search
+│       ├── dfs.js                   # Depth-First Search
+│       ├── uniformCostSearch.js     # Uniform Cost Search
+│       ├── greedyBestFirst.js       # Greedy Best-First Search
+│       ├── aStar.js                 # A* Search [f(n) = g(n) + h(n)]
+│       └── searchComparator.js      # Multi-algorithm benchmark executor
 │
-└── client/                        # Frontend UI (React + Vite)
+└── client/                          # Frontend UI (React + Vite)
     ├── index.html
-    ├── vite.config.js             # Proxies API to backend port from .env
+    ├── vite.config.js               # Proxies API to backend port from .env
     ├── package.json
     └── src/
-        ├── App.jsx                # Main application view manager
-        ├── index.css              # Custom responsive glassmorphism CSS
+        ├── App.jsx                  # Main application view manager
+        ├── index.css                # Custom responsive glassmorphism CSS
         ├── main.jsx
         ├── components/
-        │   ├── Navbar.jsx
+        │   ├── Navbar.jsx           # Top navigation with Day/Night toggle
         │   ├── CareerSearchVisualizer.jsx   # Interactive graph path playback
         │   ├── AlgorithmComparisonTable.jsx # Side-by-side benchmark table
         │   ├── AssessmentPlayer.jsx         # Question-by-question MCQ player
         │   ├── DiagnosticReport.jsx         # Report card & revision checklist
         │   ├── AILabDemonstration.jsx       # Dedicated AI Lab evaluation page
-        │   └── AssessmentHistory.jsx        # Previous attempts review
+        │   └── AssessmentHistory.jsx        # Past attempts review
         └── services/
             └── api.js                       # Frontend REST API client
 ```
@@ -229,6 +233,9 @@ When presenting this project to your professor or examiner, explain the two core
 
 ### Q4: How is Generative AI distinct from the search algorithms?
 > *"The search algorithms are deterministic classical AI algorithms that discover which job role to prepare for. Google Gemini is then used solely for Generative AI tasks: creating role-specific MCQs, analyzing user explanations semantically, and providing personalized revision recommendations."*
+
+### Q5: How does the Mock Interview prevent predictability and API delays?
+> *"The system houses a curated bank of 180 questions (30 per role). On every access, both question order and the 4 options (A, B, C, D) are shuffled using the Fisher-Yates algorithm, providing balanced answer distributions without external rate limits, while Gemini is reserved for qualitative semantic evaluation."*
 
 ---
 
