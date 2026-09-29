@@ -1,0 +1,25 @@
+{
+  "name": "ai-interview-preparation-system",
+  "version": "1.0.0",
+  "description": "AI Interview Preparation System Using Search Algorithms and Generative AI",
+  "private": true,
+  "scripts": {
+    "start": "python app.py",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client run dev",
+    "test:search": "npm --prefix server run test:search"
+  },
+  "keywords": [
+    "artificial-intelligence",
+    "search-algorithms",
+    "bfs",
+    "dfs",
+    "uniform-cost-search",
+    "greedy-best-first",
+    "a-star",
+    "gemini-ai",
+    "interview-preparation"
+  ],
+  "author": "",
+  "license": "ISC"
+}

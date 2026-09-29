@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ROLE_DATA_SCIENTIST",
+    "title": "Data Scientist",
+    "description": "Designs statistical models, develops predictive machine learning pipelines, extracts actionable business insights, and validates data hypotheses.",
+    "category": "Data Science & AI",
+    "requiredSkills": [
+      "Python",
+      "Linear Algebra & Statistics",
+      "Pandas & NumPy",
+      "Machine Learning",
+      "SQL",
+      "Model Evaluation"
+    ],
+    "importantTopics": [
+      "Linear & Logistic Regression",
+      "Decision Trees & Random Forests",
+      "Hypothesis Testing & p-values",
+      "Cross-Validation & Regularization",
+      "Feature Engineering & Imputation",
+      "SQL Aggregations & Joins"
+    ],
+    "preparationAdvice": "Focus heavily on statistical inference, bias-variance tradeoff, ROC-AUC metrics, and the math behind gradient descent."
+  },
+  {
+    "id": "ROLE_AI_ENGINEER",
+    "title": "AI / Machine Learning Engineer",
+    "description": "Builds and deploys scalable artificial intelligence systems, deep neural networks, computer vision models, and large language model integrations.",
+    "category": "Data Science & AI",
+    "requiredSkills": [
+      "Python",
+      "Deep Learning",
+      "PyTorch / TensorFlow",
+      "Natural Language Processing",
+      "Computer Vision",
+      "MLOps & Deployment"
+    ],
+    "importantTopics": [
+      "Convolutional Neural Networks (CNNs)",
+      "Recurrent Neural Networks & Transformers",
+      "Backpropagation & Activation Functions",
+      "Transfer Learning & Fine-tuning",
+      "Model Quantization & Inference Latency",
+      "Vector Embeddings & RAG"
+    ],
+    "preparationAdvice": "Master neural network architectures, attention mechanisms, loss functions (cross-entropy vs. MSE), and model deployment via Docker and FastAPI."
+  },
+  {
+    "id": "ROLE_DATA_ANALYST",
+    "title": "Data Analyst",
+    "description": "Translates complex numerical data into clear visual dashboards, performs exploratory data analysis, and assists executive decision-making.",
+    "category": "Analytics & Business Intelligence",
+    "requiredSkills": [
+      "SQL",
+      "Python (Pandas, Matplotlib)",
+      "Business Intelligence (PowerBI / Tableau)",
+      "Descriptive Statistics",
+      "Data Cleaning & Wrangling"
+    ],
+    "importantTopics": [
+      "Complex SQL Queries (Window Functions, CTEs)",
+      "Exploratory Data Analysis (EDA)",
+      "Data Normalization & Denormalization",
+      "Dashboard Storytelling & KPI Metrics",
+      "Correlation vs. Causation",
+      "Handling Missing Data & Outliers"
+    ],
+    "preparationAdvice": "Practice advanced SQL joins, group by, analytical window functions (RANK, ROW_NUMBER), and data visualization best practices."
+  },
+  {
+    "id": "ROLE_PYTHON_DEV",
+    "title": "Python Developer",
+    "description": "Engineers robust backend services, automated data processing scripts, algorithmic components, and clean object-oriented architectures.",
+    "category": "Software Engineering",
+    "requiredSkills": [
+      "Python Core & OOP",
+      "Data Structures & Algorithms",
+      "SQL & Database ORMs",
+      "RESTful API Development",
+      "Unit Testing & Debugging"
+    ],
+    "importantTopics": [
+      "Generators, Iterators & Decorators",
+      "Memory Management & GIL",
+      "Time & Space Complexity (Big-O)",
+      "Asynchronous Programming (asyncio)",
+      "API Design & Status Codes",
+      "Multithreading vs. Multiprocessing"
+    ],
+    "preparationAdvice": "Sharpen your knowledge of Pythonic conventions (PEP 8), magic methods (`__init__`, `__repr__`), exception handling, and core algorithmic data structures."
+  },
+  {
+    "id": "ROLE_BACKEND_DEV",
+    "title": "Backend Engineer",
+    "description": "Develops highly scalable server-side systems, RESTful microservices, caching layers, and database schemas with high reliability.",
+    "category": "Software Engineering",
+    "requiredSkills": [
+      "Node.js & Express",
+      "SQL / NoSQL Databases",
+      "RESTful API Architecture",
+      "Authentication & Security (JWT, bcrypt)",
+      "System Design & Caching"
+    ],
+    "importantTopics": [
+      "Event Loop & Non-Blocking I/O",
+      "Database Indexing & Query Optimization",
+      "Middleware Architecture & Error Handling",
+      "Authentication, Sessions & JWT",
+      "REST vs. GraphQL",
+      "Caching Strategies (Redis) & Rate Limiting"
+    ],
+    "preparationAdvice": "Study the Node.js event loop lifecycle, middleware chaining, SQL transaction ACID properties, and API security (CORS, CSRF, XSS prevention)."
+  },
+  {
+    "id": "ROLE_FULLSTACK_DEV",
+    "title": "Full Stack Web Developer",
+    "description": "Constructs end-to-end web applications bridging modern responsive client interfaces with secure, scalable backend services.",
+    "category": "Software Engineering",
+    "requiredSkills": [
+      "HTML/CSS & Modern JavaScript",
+      "React.js Frontend Framework",
+      "Node.js & Express APIs",
+      "Database Modeling",
+      "State Management & Async API Integration"
+    ],
+    "importantTopics": [
+      "React Component Lifecycle & Hooks",
+      "Virtual DOM & Reconciliation",
+      "State Management & Props Drilling",
+      "Asynchronous Fetch & Error Boundaries",
+      "End-to-End API Integration",
+      "Responsive Layouts & Glassmorphism UI"
+    ],
+    "preparationAdvice": "Be prepared to demonstrate how client state connects to backend REST endpoints, handles loading/error states, and manages component re-rendering."
+  }
+]

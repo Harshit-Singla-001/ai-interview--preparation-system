@@ -1,0 +1,66 @@
+[
+  {
+    "id": "COURSE_BTECH_AIDS",
+    "name": "B.Tech AI & Data Science",
+    "category": "Undergraduate Engineering",
+    "description": "Comprehensive program covering artificial intelligence, machine learning algorithms, big data architectures, and mathematical statistics.",
+    "duration": "4 Years",
+    "primarySkills": ["Python", "Statistics", "Data Structures", "Machine Learning"]
+  },
+  {
+    "id": "COURSE_BTECH_CSE",
+    "name": "B.Tech Computer Science & Engineering",
+    "category": "Undergraduate Engineering",
+    "description": "Core computer engineering curriculum encompassing algorithms, software architecture, operating systems, and computer networks.",
+    "duration": "4 Years",
+    "primarySkills": ["Data Structures", "C++", "Java", "Database Management", "Web Basics"]
+  },
+  {
+    "id": "COURSE_BCA",
+    "name": "Bachelor of Computer Applications (BCA)",
+    "category": "Undergraduate Degree",
+    "description": "Practical application development curriculum covering programming fundamentals, database design, and software engineering practices.",
+    "duration": "3 Years",
+    "primarySkills": ["Python", "Web Basics", "SQL", "Software Testing"]
+  },
+  {
+    "id": "COURSE_MCA",
+    "name": "Master of Computer Applications (MCA)",
+    "category": "Postgraduate Degree",
+    "description": "Advanced software engineering, enterprise web development, distributed cloud computing, and applied intelligence.",
+    "duration": "2 Years",
+    "primarySkills": ["Advanced Data Structures", "Node.js", "Full Stack Development", "Cloud Concepts"]
+  },
+  {
+    "id": "COURSE_DATA_SCIENCE",
+    "name": "Diploma / Certificate in Data Science",
+    "category": "Professional Specialization",
+    "description": "Focused curriculum on data manipulation, predictive analytics, statistical hypothesis testing, and business intelligence.",
+    "duration": "6-12 Months",
+    "primarySkills": ["Python", "Data Analysis", "SQL", "Machine Learning"]
+  },
+  {
+    "id": "COURSE_MACHINE_LEARNING",
+    "name": "Specialization in Machine Learning",
+    "category": "Specialization Bootcamp",
+    "description": "In-depth specialization into statistical learning, deep neural architectures, computer vision, and NLP.",
+    "duration": "6 Months",
+    "primarySkills": ["Python", "Machine Learning", "Deep Learning", "Mathematics"]
+  },
+  {
+    "id": "COURSE_PYTHON_PROG",
+    "name": "Professional Python Programming",
+    "category": "Core Programming Certificate",
+    "description": "Mastery in Python syntax, object-oriented concepts, asynchronous programming, scripting, and backend web APIs.",
+    "duration": "3-6 Months",
+    "primarySkills": ["Python", "Algorithms", "REST APIs", "SQL"]
+  },
+  {
+    "id": "COURSE_WEB_DEV",
+    "name": "Full Stack Web Development",
+    "category": "Web Engineering Bootcamp",
+    "description": "Modern client-side and server-side web application development, reactive components, microservices, and database modeling.",
+    "duration": "6 Months",
+    "primarySkills": ["HTML/CSS/JS", "React", "Node.js", "SQL & NoSQL"]
+  }
+]

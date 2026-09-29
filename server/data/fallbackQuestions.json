@@ -1,0 +1,210 @@
+{
+  "ROLE_DATA_SCIENTIST": [
+    {
+      "id": 1,
+      "topic": "Machine Learning",
+      "difficulty": "Medium",
+      "question": "Which of the following evaluation metrics is MOST resilient to severe class imbalance in binary classification?",
+      "options": {
+        "A": "Overall Classification Accuracy",
+        "B": "Area Under the Precision-Recall Curve (PR-AUC)",
+        "C": "Mean Squared Error (MSE)",
+        "D": "Root Mean Squared Logarithmic Error (RMSLE)"
+      },
+      "correctAnswer": "B",
+      "explanation": "In highly skewed class distributions, standard accuracy gives an illusory sense of high performance. PR-AUC focuses directly on the minority positive class and precision/recall trade-off."
+    },
+    {
+      "id": 2,
+      "topic": "Statistics",
+      "difficulty": "Medium",
+      "question": "In hypothesis testing, what does a p-value strictly measure?",
+      "options": {
+        "A": "The probability that the null hypothesis is true",
+        "B": "The probability of observing data as extreme as observed, assuming the null hypothesis is true",
+        "C": "The probability that the alternative hypothesis is false",
+        "D": "The effect size and practical significance of the experimental finding"
+      },
+      "correctAnswer": "B",
+      "explanation": "A p-value is the conditional probability P(Data >= observed | H0 is true). It is NOT the posterior probability that H0 is true."
+    },
+    {
+      "id": 3,
+      "topic": "Python & Data Wrangling",
+      "difficulty": "Easy",
+      "question": "What is the primary difference between Pandas `.loc[]` and `.iloc[]`?",
+      "options": {
+        "A": ".loc is for column selection only; .iloc is for rows only",
+        "B": ".loc uses label-based indexing, whereas .iloc uses integer position-based indexing",
+        "C": ".loc modifies data in-place; .iloc returns a deep copy",
+        "D": ".loc works only on Series; .iloc works exclusively on DataFrames"
+      },
+      "correctAnswer": "B",
+      "explanation": ".loc indexes by index labels and column names, while .iloc strictly indexes by numerical zero-based integer offsets."
+    },
+    {
+      "id": 4,
+      "topic": "Machine Learning",
+      "difficulty": "Hard",
+      "question": "How does L1 regularization (Lasso) differ fundamentally from L2 regularization (Ridge)?",
+      "options": {
+        "A": "L1 penalizes sum of squared weights, whereas L2 penalizes sum of absolute weights",
+        "B": "L1 encourages sparsity by driving redundant feature coefficients strictly to zero, whereas L2 shrinks coefficients toward zero without making them zero",
+        "C": "L1 is computationally non-convex, whereas L2 is always convex",
+        "D": "L1 is only applicable to decision trees, whereas L2 is for neural nets"
+      },
+      "correctAnswer": "B",
+      "explanation": "Lasso adds the L1 norm sum(|w|) whose diamond-shaped constraint boundary hits the axes, resulting in sparse feature selection where uninformative feature weights become exactly 0."
+    },
+    {
+      "id": 5,
+      "topic": "SQL",
+      "difficulty": "Medium",
+      "question": "Which SQL clause is used to filter records AFTER group aggregations have been calculated?",
+      "options": {
+        "A": "WHERE",
+        "B": "ORDER BY",
+        "C": "HAVING",
+        "D": "PARTITION BY"
+      },
+      "correctAnswer": "C",
+      "explanation": "The WHERE clause filters individual rows before aggregation; the HAVING clause filters groups created by GROUP BY after aggregate functions (SUM, COUNT, AVG) are computed."
+    }
+  ],
+  "ROLE_AI_ENGINEER": [
+    {
+      "id": 1,
+      "topic": "Deep Learning",
+      "difficulty": "Medium",
+      "question": "Why are Rectified Linear Units (ReLU) commonly preferred over Sigmoid in hidden layers of deep neural networks?",
+      "options": {
+        "A": "ReLU is bounded between 0 and 1, stabilizing activations",
+        "B": "ReLU mitigates the vanishing gradient problem for positive inputs and requires less computation",
+        "C": "ReLU has a continuous second derivative everywhere",
+        "D": "ReLU automatically prevents overfitting without dropout"
+      },
+      "correctAnswer": "B",
+      "explanation": "Sigmoid gradients saturate near 0 and 1, causing vanishing gradients in deep networks. ReLU has constant gradient of 1 for positive inputs, avoiding gradient shrinkage and speeding up convergence."
+    },
+    {
+      "id": 2,
+      "topic": "Computer Vision",
+      "difficulty": "Medium",
+      "question": "What is the primary role of a Max Pooling layer in a Convolutional Neural Network (CNN)?",
+      "options": {
+        "A": "To increase the number of feature channels",
+        "B": "To downsample spatial dimensions, reducing parameter count and introducing translation invariance",
+        "C": "To normalize batch activations before non-linear functions",
+        "D": "To compute gradients via backpropagation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Max pooling extracts the dominant feature within a window, shrinking width and height to reduce computation and make features invariant to minor translations."
+    },
+    {
+      "id": 3,
+      "topic": "NLP & Transformers",
+      "difficulty": "Hard",
+      "question": "What is the primary computational bottleneck in standard multi-head self-attention as sequence length N grows?",
+      "options": {
+        "A": "O(N) linear time complexity with respect to sequence length",
+        "B": "O(N^2) quadratic time and memory complexity for computing QK^T attention matrices",
+        "C": "O(2^N) exponential parameter growth in the feedforward network",
+        "D": "Tokenizer vocabulary lookup overhead"
+      },
+      "correctAnswer": "B",
+      "explanation": "Calculating pairwise dot products between all query and key tokens produces an N x N matrix, scaling quadratically O(N^2) with context length."
+    }
+  ],
+  "ROLE_BACKEND_DEV": [
+    {
+      "id": 1,
+      "topic": "Node.js Architecture",
+      "difficulty": "Medium",
+      "question": "How does Node.js handle concurrent client connections despite running on a single main JavaScript thread?",
+      "options": {
+        "A": "It creates a new OS thread for each incoming HTTP request",
+        "B": "It utilizes an asynchronous non-blocking event loop backed by the libuv thread pool for I/O operations",
+        "C": "It forks the entire Node process on every incoming socket connection",
+        "D": "It compiles JavaScript to parallelized C++ bytecode at runtime"
+      },
+      "correctAnswer": "B",
+      "explanation": "Node.js runs an event-driven loop on the main thread for coordination, offloading blocking asynchronous operations (file system, DNS, crypto) to the underlying libuv worker pool."
+    },
+    {
+      "id": 2,
+      "topic": "API Security & Auth",
+      "difficulty": "Medium",
+      "question": "Where should a JSON Web Token (JWT) session token ideally be stored in browser clients to protect against Cross-Site Scripting (XSS)?",
+      "options": {
+        "A": "In window.localStorage",
+        "B": "In an HttpOnly, Secure, SameSite cookie",
+        "C": "In window.sessionStorage",
+        "D": "In a global JavaScript variable attached to window"
+      },
+      "correctAnswer": "B",
+      "explanation": "HttpOnly cookies cannot be accessed by client-side JavaScript, rendering stored authentication tokens immune to malicious XSS extraction scripts."
+    },
+    {
+      "id": 3,
+      "topic": "System Design",
+      "difficulty": "Hard",
+      "question": "What problem does database indexing primarily solve, and what is its main trade-off?",
+      "options": {
+        "A": "Solves data compression; trades off CPU usage",
+        "B": "Speeds up data retrieval (SELECT); slows down write operations (INSERT, UPDATE, DELETE) and consumes extra disk space",
+        "C": "Prevents SQL injection; increases query execution time",
+        "D": "Enforces foreign keys; disables horizontal scaling"
+      },
+      "correctAnswer": "B",
+      "explanation": "Indexes (like B-Trees) drastically accelerate search lookups from O(N) full table scans to O(log N), but require extra disk storage and must be updated on every write operation."
+    }
+  ],
+  "ROLE_DATA_ANALYST": [
+    {
+      "id": 1,
+      "topic": "SQL & Aggregations",
+      "difficulty": "Easy",
+      "question": "What is the difference between UNION and UNION ALL in SQL?",
+      "options": {
+        "A": "UNION combines different databases; UNION ALL combines tables in the same database",
+        "B": "UNION eliminates duplicate rows with an implicit sort; UNION ALL retains all rows including duplicates and is faster",
+        "C": "UNION is for numeric data only; UNION ALL is for strings",
+        "D": "UNION requires the same table structure; UNION ALL works across dissimilar schemas"
+      },
+      "correctAnswer": "B",
+      "explanation": "UNION runs a distinct de-duplication step, whereas UNION ALL directly concatenates the result sets, making it significantly faster when duplicates are acceptable or absent."
+    }
+  ],
+  "ROLE_PYTHON_DEV": [
+    {
+      "id": 1,
+      "topic": "Python Internals",
+      "difficulty": "Medium",
+      "question": "What is the Global Interpreter Lock (GIL) in CPython?",
+      "options": {
+        "A": "A security module preventing unauthorized code imports",
+        "B": "A mutex that prevents multiple native threads from executing Python bytecodes simultaneously",
+        "C": "A deadlock prevention mechanism inside the garbage collector",
+        "D": "A database connection pool manager"
+      },
+      "correctAnswer": "B",
+      "explanation": "CPython's GIL ensures thread safety for memory management (reference counts) by permitting only one native thread to execute Python bytecode at any given moment."
+    }
+  ],
+  "ROLE_FULLSTACK_DEV": [
+    {
+      "id": 1,
+      "topic": "React & Architecture",
+      "difficulty": "Medium",
+      "question": "Why should you never mutate React state directly (e.g., `state.count = 5`)?",
+      "options": {
+        "A": "It will throw a fatal JavaScript syntax error",
+        "B": "React relies on shallow reference equality checks; direct mutation does not trigger reconciliation and component re-rendering",
+        "C": "Direct mutation corrupts the backend database automatically",
+        "D": "React freeze objects make mutations physically impossible in production"
+      },
+      "correctAnswer": "B",
+      "explanation": "React compares previous and new state references (`Object.is`). If you mutate existing objects directly, the reference does not change, causing React to skip UI updates."
+    }
+  ]
+}
