@@ -201,23 +201,15 @@ export function App() {
     return 0;
   });
 
-  // Start Mock Interview
+  // Start Mock Interview - Randomizes from the 30-question curated bank on every access
   const handleStartInterview = async () => {
     if (!confirmedRole) return;
     setIsGeneratingPaper(true);
     try {
-      if (prefetchedPaper && questionCount === 5 && difficulty === 'Mixed' && selectedTopic === 'All Topics') {
-        setAssessmentPaper(prefetchedPaper);
-        setActiveView('assessment');
-        setIsGeneratingPaper(false);
-        return;
-      }
-
       const response = await generateInterviewQuestions({
         jobRoleId: confirmedRole.id,
         count: questionCount,
-        difficulty,
-        topic: selectedTopic
+        difficulty
       });
 
       if (response && response.success && response.questions?.length > 0) {
@@ -259,6 +251,7 @@ export function App() {
         isAiOnline={isAiOnline}
         theme={theme}
         toggleTheme={toggleTheme}
+        isMockDisabled={!confirmedRole}
       />
 
       <main className="main-content" style={{ flex: 1 }}>
@@ -511,54 +504,83 @@ export function App() {
         )}
 
         {/* =========================================================================
-            VIEW 3: INTERVIEW SETUP (Gated with blur if setup is incomplete)
+            VIEW 3: INTERVIEW SETUP (Locked until Job Profile is selected)
            ========================================================================= */}
         {activeView === 'interview-setup' && (
-          <div className="gated-wrapper animate-fade-in" style={{ maxWidth: '820px', margin: '0 auto' }}>
-            {/* Gated Blur Overlay if Course and Role are not confirmed */}
-            {(!confirmedCourse || !confirmedRole) && (
-              <div className="gated-overlay-card">
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎯</div>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '10px', color: 'var(--text-main)' }}>
-                  Complete Career Setup First
-                </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '24px', lineHeight: '1.6' }}>
-                  To experience a tailored mock interview, please select your completed course and confirm your target job profile in the Career Path Finder first.
-                </p>
+          !confirmedRole ? (
+            <div className="glass-panel animate-fade-in" style={{
+              maxWidth: '680px',
+              margin: '40px auto',
+              padding: '48px 36px',
+              textAlign: 'center',
+              border: '1.5px solid var(--border-subtle)'
+            }}>
+              <div style={{
+                width: '64px',
+                height: '64px',
+                borderRadius: '18px',
+                background: 'rgba(239, 68, 68, 0.1)',
+                border: '1.5px solid rgba(239, 68, 68, 0.25)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '2rem',
+                marginBottom: '20px'
+              }}>
+                🔒
+              </div>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-main)' }}>
+                Mock Interview is Disabled
+              </h2>
+              <p style={{
+                color: 'var(--text-muted)',
+                fontSize: '0.98rem',
+                lineHeight: '1.65',
+                marginBottom: '28px',
+                maxWidth: '520px',
+                margin: '0 auto 28px auto'
+              }}>
+                The interview assessment is customized to your career destination. Please go to the <strong>Career Path Finder</strong> on the home page, select your course, and confirm your target job profile to unlock the mock interview.
+              </p>
+
+              <div>
                 <button
                   className="btn btn-primary"
-                  style={{ padding: '12px 28px', fontSize: '0.95rem' }}
-                  onClick={() => {
-                    setActiveView('home');
-                    if (!confirmedCourse) setConfirmedCourse(null);
+                  style={{
+                    padding: '14px 32px',
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px'
                   }}
+                  onClick={() => setActiveView('home')}
                 >
-                  Go to Career Path Finder ➔
+                  <span>🎯</span> Go to Home Page (Career Path Finder)
                 </button>
               </div>
-            )}
-
-            {/* Actual Interview Setup Content (blurred if gated) */}
-            <div className={!confirmedCourse || !confirmedRole ? 'gated-content-blurred' : ''}>
+            </div>
+          ) : (
+            <div className="animate-fade-in" style={{ maxWidth: '820px', margin: '0 auto' }}>
               <div style={{ marginBottom: '28px' }}>
                 <button className="btn btn-secondary" onClick={() => setActiveView('home')} style={{ marginBottom: '14px', fontSize: '0.85rem' }}>
                   ← Back to Career Path
                 </button>
                 <h2 style={{ fontSize: '2rem', marginBottom: '6px' }}>
-                  Interview Assessment Setup: <span className="gradient-accent">{confirmedRole?.title || 'Job Role'}</span>
+                  Interview Assessment Setup: <span className="gradient-accent">{confirmedRole.title}</span>
                 </h2>
                 <p style={{ color: 'var(--text-muted)' }}>
-                  Configure your mock examination parameters. Gemini will synthesize practical problem-solving questions.
+                  Configure your mock interview parameters. Questions are drawn dynamically in randomized order from the 30-question curated bank.
                 </p>
               </div>
 
               <div className="glass-panel" style={{ padding: '32px', marginBottom: '24px' }}>
                 <div style={{ marginBottom: '24px' }}>
-                  <h4 style={{ fontSize: '1rem', marginBottom: '8px', color: 'var(--primary)' }}>
+                  <h4 style={{ fontSize: '0.92rem', marginBottom: '8px', color: 'var(--primary)' }}>
                     Prerequisites & Required Competencies
                   </h4>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                    {(confirmedRole?.requiredSkills || []).map((skill, idx) => (
+                    {(confirmedRole.requiredSkills || []).map((skill, idx) => (
                       <span key={idx} className="code-badge" style={{ padding: '4px 10px', fontSize: '0.85rem' }}>
                         ✓ {skill}
                       </span>
@@ -566,7 +588,7 @@ export function App() {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '28px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '28px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '8px' }}>
                       Number of Questions:
@@ -588,7 +610,6 @@ export function App() {
                       <option value={5}>5 Questions (Fast Practice)</option>
                       <option value={10}>10 Questions (Standard Mock)</option>
                       <option value={15}>15 Questions (Comprehensive)</option>
-                      <option value={20}>20 Questions (Full Assessment)</option>
                     </select>
                   </div>
 
@@ -616,44 +637,19 @@ export function App() {
                       <option value="Hard">Hard (Advanced Technical Depth)</option>
                     </select>
                   </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '8px' }}>
-                      Topic Specialization:
-                    </label>
-                    <select
-                      value={selectedTopic}
-                      onChange={(e) => setSelectedTopic(e.target.value)}
-                      style={{
-                        width: '100%',
-                        padding: '11px 14px',
-                        borderRadius: 'var(--radius-md)',
-                        background: 'var(--bg-secondary)',
-                        border: '1.5px solid var(--border-subtle)',
-                        color: 'var(--text-main)',
-                        fontSize: '0.92rem',
-                        fontWeight: 600
-                      }}
-                    >
-                      <option value="All Topics">All Key Topics</option>
-                      {(confirmedRole?.importantTopics || []).map((topic, idx) => (
-                        <option key={idx} value={topic}>{topic}</option>
-                      ))}
-                    </select>
-                  </div>
                 </div>
 
                 <button
                   className="btn btn-primary"
                   style={{ width: '100%', padding: '14px', fontSize: '1.05rem' }}
                   onClick={handleStartInterview}
-                  disabled={isGeneratingPaper || !confirmedRole}
+                  disabled={isGeneratingPaper}
                 >
-                  {isGeneratingPaper ? 'Preparing Questions...' : '🚀 Generate Interview Paper & Start'}
+                  {isGeneratingPaper ? 'Preparing Questions...' : '🚀 Start Mock Interview'}
                 </button>
               </div>
             </div>
-          </div>
+          )
         )}
 
         {/* =========================================================================

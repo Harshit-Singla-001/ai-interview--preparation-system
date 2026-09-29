@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Navbar({ activeView, setActiveView, isAiOnline, theme, toggleTheme }) {
+export function Navbar({ activeView, setActiveView, isAiOnline, theme, toggleTheme, isMockDisabled }) {
   return (
     <nav className="navbar">
       <div
@@ -55,8 +55,25 @@ export function Navbar({ activeView, setActiveView, isAiOnline, theme, toggleThe
         <button
           className={`nav-btn ${activeView === 'interview-setup' || activeView === 'assessment' || activeView === 'report' ? 'active' : ''}`}
           onClick={() => setActiveView('interview-setup')}
+          style={{
+            opacity: isMockDisabled ? 0.7 : 1,
+            cursor: 'pointer'
+          }}
+          title={isMockDisabled ? 'Select a job profile in Career Path Finder first to unlock' : 'Mock Interview'}
         >
-          <span>📝</span> Mock Interview
+          <span>{isMockDisabled ? '🔒' : '📝'}</span> Mock Interview {isMockDisabled && (
+            <span style={{
+              fontSize: '0.68rem',
+              padding: '2px 6px',
+              borderRadius: '4px',
+              background: 'rgba(239, 68, 68, 0.15)',
+              color: 'var(--accent-rose)',
+              marginLeft: '4px',
+              fontWeight: 700
+            }}>
+              Locked
+            </span>
+          )}
         </button>
 
         <button

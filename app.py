@@ -84,7 +84,7 @@ def main():
         # Start Node.js Backend Server
         print(f"[Launcher] Starting Backend Server on port {server_port}...")
         server_proc = subprocess.Popen(
-            ["node", "server.js"],
+            ["node", "--watch", "server.js"],
             cwd=str(SERVER_DIR),
             shell=True
         )

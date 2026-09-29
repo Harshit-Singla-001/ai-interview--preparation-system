@@ -4,7 +4,7 @@
       "id": 1,
       "topic": "Machine Learning",
       "difficulty": "Medium",
-      "question": "Which of the following evaluation metrics is MOST resilient to severe class imbalance in binary classification?",
+      "question": "Which evaluation metric is MOST resilient to severe class imbalance in binary classification?",
       "options": {
         "A": "Overall Classification Accuracy",
         "B": "Area Under the Precision-Recall Curve (PR-AUC)",
@@ -12,7 +12,7 @@
         "D": "Root Mean Squared Logarithmic Error (RMSLE)"
       },
       "correctAnswer": "B",
-      "explanation": "In highly skewed class distributions, standard accuracy gives an illusory sense of high performance. PR-AUC focuses directly on the minority positive class and precision/recall trade-off."
+      "explanation": "PR-AUC focuses directly on minority positive class performance and precision/recall trade-off."
     },
     {
       "id": 2,
@@ -23,24 +23,24 @@
         "A": "The probability that the null hypothesis is true",
         "B": "The probability of observing data as extreme as observed, assuming the null hypothesis is true",
         "C": "The probability that the alternative hypothesis is false",
-        "D": "The effect size and practical significance of the experimental finding"
+        "D": "The practical effect size of the experiment"
       },
       "correctAnswer": "B",
-      "explanation": "A p-value is the conditional probability P(Data >= observed | H0 is true). It is NOT the posterior probability that H0 is true."
+      "explanation": "A p-value measures P(Data >= observed | H0 is true). It is never the posterior probability of H0."
     },
     {
       "id": 3,
-      "topic": "Python & Data Wrangling",
+      "topic": "Data Wrangling",
       "difficulty": "Easy",
-      "question": "What is the primary difference between Pandas `.loc[]` and `.iloc[]`?",
+      "question": "What is the primary difference between Pandas .loc[] and .iloc[]?",
       "options": {
-        "A": ".loc is for column selection only; .iloc is for rows only",
+        "A": ".loc is for columns only; .iloc is for rows only",
         "B": ".loc uses label-based indexing, whereas .iloc uses integer position-based indexing",
         "C": ".loc modifies data in-place; .iloc returns a deep copy",
         "D": ".loc works only on Series; .iloc works exclusively on DataFrames"
       },
       "correctAnswer": "B",
-      "explanation": ".loc indexes by index labels and column names, while .iloc strictly indexes by numerical zero-based integer offsets."
+      "explanation": ".loc matches explicit index labels and column names, while .iloc strictly indexes by integer offsets."
     },
     {
       "id": 4,
@@ -49,12 +49,12 @@
       "question": "How does L1 regularization (Lasso) differ fundamentally from L2 regularization (Ridge)?",
       "options": {
         "A": "L1 penalizes sum of squared weights, whereas L2 penalizes sum of absolute weights",
-        "B": "L1 encourages sparsity by driving redundant feature coefficients strictly to zero, whereas L2 shrinks coefficients toward zero without making them zero",
+        "B": "L1 encourages sparsity by driving redundant feature coefficients strictly to zero, whereas L2 shrinks coefficients toward zero without zeroing them",
         "C": "L1 is computationally non-convex, whereas L2 is always convex",
         "D": "L1 is only applicable to decision trees, whereas L2 is for neural nets"
       },
       "correctAnswer": "B",
-      "explanation": "Lasso adds the L1 norm sum(|w|) whose diamond-shaped constraint boundary hits the axes, resulting in sparse feature selection where uninformative feature weights become exactly 0."
+      "explanation": "Lasso adds the L1 norm sum(|w|) whose diamond constraint boundary sets uninformative weights to exactly 0."
     },
     {
       "id": 5,
@@ -68,7 +68,357 @@
         "D": "PARTITION BY"
       },
       "correctAnswer": "C",
-      "explanation": "The WHERE clause filters individual rows before aggregation; the HAVING clause filters groups created by GROUP BY after aggregate functions (SUM, COUNT, AVG) are computed."
+      "explanation": "The WHERE clause filters rows prior to aggregation; HAVING filters grouped rows after aggregation functions."
+    },
+    {
+      "id": 6,
+      "topic": "Machine Learning",
+      "difficulty": "Easy",
+      "question": "What is the primary trade-off described by the Bias-Variance tradeoff?",
+      "options": {
+        "A": "Model training speed vs. inference speed",
+        "B": "Underfitting (high bias) vs. Overfitting (high variance)",
+        "C": "Precision vs. Recall in clustering",
+        "D": "CPU memory vs. GPU core utilization"
+      },
+      "correctAnswer": "B",
+      "explanation": "High bias causes underfitting due to oversimplified assumptions; high variance causes overfitting to training noise."
+    },
+    {
+      "id": 7,
+      "topic": "Statistics",
+      "difficulty": "Easy",
+      "question": "What does the Central Limit Theorem state regarding the sample mean?",
+      "options": {
+        "A": "Any population distribution becomes normal as sample size grows",
+        "B": "The sampling distribution of the sample mean approaches a normal distribution as sample size n increases, regardless of population shape",
+        "C": "The sample median is always equal to the population mode",
+        "D": "Sample variance is always equal to population standard deviation"
+      },
+      "correctAnswer": "B",
+      "explanation": "For sufficiently large sample sizes (n >= 30), the sampling distribution of the mean is approximately normal."
+    },
+    {
+      "id": 8,
+      "topic": "Machine Learning",
+      "difficulty": "Medium",
+      "question": "In Random Forest classifiers, what does 'Bagging' stand for?",
+      "options": {
+        "A": "Boosted Aggregate Gradient",
+        "B": "Bootstrap Aggregating",
+        "C": "Bayesian Adaptive Grouping",
+        "D": "Boundary Allocation Graphing"
+      },
+      "correctAnswer": "B",
+      "explanation": "Bootstrap Aggregating trains multiple decision trees on random resampled subsets with replacement."
+    },
+    {
+      "id": 9,
+      "topic": "Statistics",
+      "difficulty": "Hard",
+      "question": "What type of error is committed when a researcher fails to reject a false null hypothesis?",
+      "options": {
+        "A": "Type I Error (False Positive)",
+        "B": "Type II Error (False Negative)",
+        "C": "Standard Error of the Mean",
+        "D": "Degrees of Freedom Error"
+      },
+      "correctAnswer": "B",
+      "explanation": "Type II error (beta) occurs when the null hypothesis is false, but the test fails to detect the effect."
+    },
+    {
+      "id": 10,
+      "topic": "Data Wrangling",
+      "difficulty": "Medium",
+      "question": "Which imputation method is best suited for numeric features with extreme outliers?",
+      "options": {
+        "A": "Mean imputation",
+        "B": "Median or KNN imputation",
+        "C": "Zero fill imputation",
+        "D": "Standard deviation scaling"
+      },
+      "correctAnswer": "B",
+      "explanation": "The median is robust against extreme skewed outliers, whereas the mean is distorted by extreme values."
+    },
+    {
+      "id": 11,
+      "topic": "Machine Learning",
+      "difficulty": "Medium",
+      "question": "What problem does K-Fold Cross Validation primarily solve?",
+      "options": {
+        "A": "Slow gradient descent convergence",
+        "B": "Optimistic evaluation bias and dataset split sensitivity",
+        "C": "High multicollinearity in linear models",
+        "D": "Feature dimensionality reduction"
+      },
+      "correctAnswer": "B",
+      "explanation": "K-Fold evaluates the model across K independent test folds to provide an unbiased estimate of generalization."
+    },
+    {
+      "id": 12,
+      "topic": "Machine Learning",
+      "difficulty": "Hard",
+      "question": "In Support Vector Machines, what is the purpose of the 'Kernel Trick'?",
+      "options": {
+        "A": "To compress large training data into RAM",
+        "B": "To compute dot products in high-dimensional feature space without explicitly transforming the coordinates",
+        "C": "To replace convex quadratic programming with gradient descent",
+        "D": "To perform unsupervised dimensionality reduction"
+      },
+      "correctAnswer": "B",
+      "explanation": "The kernel trick computes inner products in higher-dimensional Hilbert space directly using kernel functions."
+    },
+    {
+      "id": 13,
+      "topic": "Data Wrangling",
+      "difficulty": "Easy",
+      "question": "Which Pandas function is used to convert categorical variables into dummy/indicator 0/1 columns?",
+      "options": {
+        "A": "pd.factorize()",
+        "B": "pd.get_dummies()",
+        "C": "df.pivot()",
+        "D": "df.melt()"
+      },
+      "correctAnswer": "B",
+      "explanation": "pd.get_dummies() creates one-hot encoded binary indicator columns for categorical values."
+    },
+    {
+      "id": 14,
+      "topic": "Statistics",
+      "difficulty": "Medium",
+      "question": "What does Pearson correlation coefficient (r = 0) strictly indicate?",
+      "options": {
+        "A": "There is absolutely no relationship between the two variables",
+        "B": "There is no linear relationship between the two variables",
+        "C": "The two variables are statistically independent",
+        "D": "Both variables follow uniform distributions"
+      },
+      "correctAnswer": "B",
+      "explanation": "Pearson correlation only detects linear associations. Non-linear relationships (like y = x^2) can have r = 0."
+    },
+    {
+      "id": 15,
+      "topic": "Machine Learning",
+      "difficulty": "Medium",
+      "question": "What is the ROC curve plotting across varying classification thresholds?",
+      "options": {
+        "A": "Precision against Recall",
+        "B": "True Positive Rate (Sensitivity) against False Positive Rate (1 - Specificity)",
+        "C": "Training loss against Validation loss",
+        "D": "Accuracy against F1-score"
+      },
+      "correctAnswer": "B",
+      "explanation": "The ROC curve plots TPR vs FPR across all possible discrimination thresholds."
+    },
+    {
+      "id": 16,
+      "topic": "Machine Learning",
+      "difficulty": "Easy",
+      "question": "Which algorithm is an unsupervised clustering technique that assigns data points to K centroids?",
+      "options": {
+        "A": "K-Nearest Neighbors (KNN)",
+        "B": "K-Means Clustering",
+        "C": "Linear Discriminant Analysis",
+        "D": "Naïve Bayes"
+      },
+      "correctAnswer": "B",
+      "explanation": "K-Means is an unsupervised clustering algorithm; KNN is a supervised classification/regression algorithm."
+    },
+    {
+      "id": 17,
+      "topic": "Statistics",
+      "difficulty": "Hard",
+      "question": "When multiple predictor features in linear regression are highly correlated with each other, what is this called?",
+      "options": {
+        "A": "Heteroscedasticity",
+        "B": "Multicollinearity",
+        "C": "Autocorrelation",
+        "D": "Endogeneity"
+      },
+      "correctAnswer": "B",
+      "explanation": "Multicollinearity inflates standard errors of regression coefficients, making estimates unstable."
+    },
+    {
+      "id": 18,
+      "topic": "Machine Learning",
+      "difficulty": "Hard",
+      "question": "In Gradient Boosting Machines (XGBoost/LightGBM), each sequential tree is trained to predict what?",
+      "options": {
+        "A": "The original target variable directly",
+        "B": "The pseudo-residuals (negative gradient of the loss function) of previous trees",
+        "C": "The random noise distribution",
+        "D": "The class probability threshold"
+      },
+      "correctAnswer": "B",
+      "explanation": "Boosting fits subsequent learners to the residual errors of the current ensemble."
+    },
+    {
+      "id": 19,
+      "topic": "Data Wrangling",
+      "difficulty": "Medium",
+      "question": "What does standard scaling (Z-score normalization) do to a continuous feature?",
+      "options": {
+        "A": "Scales values strictly between [0, 1]",
+        "B": "Transforms the feature to have mean = 0 and standard deviation = 1",
+        "C": "Removes all negative values",
+        "D": "Converts the distribution to a uniform distribution"
+      },
+      "correctAnswer": "B",
+      "explanation": "Z-score normalization computes (x - mean) / std, centering the mean at 0 and variance at 1."
+    },
+    {
+      "id": 20,
+      "topic": "Machine Learning",
+      "difficulty": "Easy",
+      "question": "In decision tree algorithms, what is Information Gain based on?",
+      "options": {
+        "A": "Root Mean Squared Error",
+        "B": "Reduction in Entropy",
+        "C": "Silhouette Coefficient",
+        "D": "L2 Loss reduction"
+      },
+      "correctAnswer": "B",
+      "explanation": "Information Gain measures the expected reduction in Shannon Entropy after splitting on an attribute."
+    },
+    {
+      "id": 21,
+      "topic": "Statistics",
+      "difficulty": "Medium",
+      "question": "What does Bayes' Theorem describe?",
+      "options": {
+        "A": "The sampling distribution of the median",
+        "B": "The conditional probability of an event given prior knowledge of conditions related to the event",
+        "C": "The linear combination of eigenvectors",
+        "D": "The convergence rate of gradient descent"
+      },
+      "correctAnswer": "B",
+      "explanation": "Bayes' Theorem relates P(A|B) = [P(B|A) * P(A)] / P(B)."
+    },
+    {
+      "id": 22,
+      "topic": "Machine Learning",
+      "difficulty": "Medium",
+      "question": "Why do we evaluate models on a separate test set rather than the training set?",
+      "options": {
+        "A": "To verify runtime execution speed",
+        "B": "To measure out-of-sample generalization and avoid overfitting optimism",
+        "C": "To reduce feature dimensions",
+        "D": "To normalize target predictions"
+      },
+      "correctAnswer": "B",
+      "explanation": "Evaluating on unseen test data detects whether the model has memorized noise or learned generalizable patterns."
+    },
+    {
+      "id": 23,
+      "topic": "SQL",
+      "difficulty": "Hard",
+      "question": "Which SQL window function assigns a rank to each row with no gaps in ranking values?",
+      "options": {
+        "A": "RANK()",
+        "B": "DENSE_RANK()",
+        "C": "ROW_NUMBER()",
+        "D": "NTILE()"
+      },
+      "correctAnswer": "B",
+      "explanation": "DENSE_RANK() leaves no gaps between ranked tiers when ties occur (e.g., 1, 2, 2, 3), whereas RANK() skips (1, 2, 2, 4)."
+    },
+    {
+      "id": 24,
+      "topic": "Machine Learning",
+      "difficulty": "Hard",
+      "question": "What does Principal Component Analysis (PCA) maximize when finding the first principal component?",
+      "options": {
+        "A": "Classification accuracy of target labels",
+        "B": "The variance of projected data points along the component vector",
+        "C": "The entropy of features",
+        "D": "The sparsity of feature coefficients"
+      },
+      "correctAnswer": "B",
+      "explanation": "PCA identifies orthogonal axes that capture the maximum variance of the feature space."
+    },
+    {
+      "id": 25,
+      "topic": "Statistics",
+      "difficulty": "Easy",
+      "question": "What is the median of the following dataset: [3, 7, 8, 12, 14, 18, 20]?",
+      "options": {
+        "A": "8",
+        "B": "12",
+        "C": "14",
+        "D": "11.7"
+      },
+      "correctAnswer": "B",
+      "explanation": "In an ordered dataset of 7 values, the middle value (4th position) is 12."
+    },
+    {
+      "id": 26,
+      "topic": "Machine Learning",
+      "difficulty": "Medium",
+      "question": "What is the key assumption of Naïve Bayes classifiers?",
+      "options": {
+        "A": "Features follow a uniform distribution",
+        "B": "All input features are conditionally independent given the class label",
+        "C": "Features are linearly separable",
+        "D": "Features have equal variance and zero covariance"
+      },
+      "correctAnswer": "B",
+      "explanation": "Naïve Bayes makes the strong assumption that all predictors are mutually independent given class outcome."
+    },
+    {
+      "id": 27,
+      "topic": "Data Wrangling",
+      "difficulty": "Medium",
+      "question": "In Pandas, which operation combines two DataFrames horizontally based on shared key columns?",
+      "options": {
+        "A": "pd.concat(axis=0)",
+        "B": "pd.merge()",
+        "C": "df.append()",
+        "D": "df.stack()"
+      },
+      "correctAnswer": "B",
+      "explanation": "pd.merge() performs relational database-style joins (inner, outer, left, right) on matching key columns."
+    },
+    {
+      "id": 28,
+      "topic": "Machine Learning",
+      "difficulty": "Hard",
+      "question": "What happens when the regularization parameter C in a Logistic Regression model is set extremely high?",
+      "options": {
+        "A": "Regularization penalty increases to maximum, causing severe underfitting",
+        "B": "Regularization penalty decreases toward zero, increasing risk of overfitting",
+        "C": "The model turns into an unsupervised clustering algorithm",
+        "D": "Features are forced to have unit variance"
+      },
+      "correctAnswer": "B",
+      "explanation": "In scikit-learn, C is inverse regularization strength (1/lambda). Large C means minimal regularization."
+    },
+    {
+      "id": 29,
+      "topic": "Statistics",
+      "difficulty": "Medium",
+      "question": "If a distribution has a long tail extending toward the right, what is its skewness?",
+      "options": {
+        "A": "Negative skew (left-skewed)",
+        "B": "Positive skew (right-skewed)",
+        "C": "Zero skew (symmetric)",
+        "D": "Bimodal skew"
+      },
+      "correctAnswer": "B",
+      "explanation": "A distribution with a long right tail has positive skewness, and the mean is typically greater than the median."
+    },
+    {
+      "id": 30,
+      "topic": "Machine Learning",
+      "difficulty": "Medium",
+      "question": "Which algorithm creates an ensemble of weak decision trees sequentially where each tree corrects the errors of its predecessor?",
+      "options": {
+        "A": "Random Forest",
+        "B": "Gradient Boosted Decision Trees (GBDT)",
+        "C": "Linear Discriminant Analysis",
+        "D": "K-Means Clustering"
+      },
+      "correctAnswer": "B",
+      "explanation": "GBDT sequentially builds shallow trees to minimize the loss function gradient of prior predictions."
     }
   ],
   "ROLE_AI_ENGINEER": [
@@ -76,43 +426,421 @@
       "id": 1,
       "topic": "Deep Learning",
       "difficulty": "Medium",
-      "question": "Why are Rectified Linear Units (ReLU) commonly preferred over Sigmoid in hidden layers of deep neural networks?",
+      "question": "Why is ReLU activation generally preferred over Sigmoid in hidden layers of deep networks?",
       "options": {
-        "A": "ReLU is bounded between 0 and 1, stabilizing activations",
-        "B": "ReLU mitigates the vanishing gradient problem for positive inputs and requires less computation",
-        "C": "ReLU has a continuous second derivative everywhere",
-        "D": "ReLU automatically prevents overfitting without dropout"
+        "A": "ReLU outputs values bounded strictly between -1 and 1",
+        "B": "ReLU mitigates the vanishing gradient problem for positive activations and is computationally efficient",
+        "C": "ReLU has a continuous derivative across the entire real number line",
+        "D": "ReLU eliminates the need for batch normalization"
       },
       "correctAnswer": "B",
-      "explanation": "Sigmoid gradients saturate near 0 and 1, causing vanishing gradients in deep networks. ReLU has constant gradient of 1 for positive inputs, avoiding gradient shrinkage and speeding up convergence."
+      "explanation": "Sigmoid saturates at 0 and 1, extinguishing gradients. ReLU maintains a gradient of 1 for x > 0."
     },
     {
       "id": 2,
       "topic": "Computer Vision",
       "difficulty": "Medium",
-      "question": "What is the primary role of a Max Pooling layer in a Convolutional Neural Network (CNN)?",
+      "question": "What is the primary function of a Convolutional Layer in a CNN?",
       "options": {
-        "A": "To increase the number of feature channels",
-        "B": "To downsample spatial dimensions, reducing parameter count and introducing translation invariance",
-        "C": "To normalize batch activations before non-linear functions",
-        "D": "To compute gradients via backpropagation"
+        "A": "To compute fully connected matrix multiplications",
+        "B": "To extract local spatial feature hierarchies (edges, textures, shapes) through learnable filters",
+        "C": "To downsample the input sequence temporally",
+        "D": "To normalize activation variances across mini-batches"
       },
       "correctAnswer": "B",
-      "explanation": "Max pooling extracts the dominant feature within a window, shrinking width and height to reduce computation and make features invariant to minor translations."
+      "explanation": "Conv layers slide parameterized kernels across input tensors to detect spatial patterns with parameter sharing."
     },
     {
       "id": 3,
       "topic": "NLP & Transformers",
       "difficulty": "Hard",
-      "question": "What is the primary computational bottleneck in standard multi-head self-attention as sequence length N grows?",
+      "question": "What is the time and memory complexity of standard multi-head self-attention with sequence length N?",
       "options": {
-        "A": "O(N) linear time complexity with respect to sequence length",
-        "B": "O(N^2) quadratic time and memory complexity for computing QK^T attention matrices",
-        "C": "O(2^N) exponential parameter growth in the feedforward network",
-        "D": "Tokenizer vocabulary lookup overhead"
+        "A": "O(N) linear complexity",
+        "B": "O(N^2) quadratic complexity",
+        "C": "O(N log N) log-linear complexity",
+        "D": "O(2^N) exponential complexity"
       },
       "correctAnswer": "B",
-      "explanation": "Calculating pairwise dot products between all query and key tokens produces an N x N matrix, scaling quadratically O(N^2) with context length."
+      "explanation": "Computing pairwise dot products between all N queries and N keys yields an N x N attention matrix (O(N^2))."
+    },
+    {
+      "id": 4,
+      "topic": "Deep Learning",
+      "difficulty": "Medium",
+      "question": "What does the technique 'Dropout' do during neural network training?",
+      "options": {
+        "A": "Permanently deletes weights that are smaller than a threshold",
+        "B": "Randomly zeroes out a fraction of neuron activations on each forward pass to prevent co-adaptation",
+        "C": "Reduces the learning rate by a constant factor",
+        "D": "Eliminates low-confidence output classes"
+      },
+      "correctAnswer": "B",
+      "explanation": "Dropout forces neurons to learn robust independent features by randomly dropping activations during training."
+    },
+    {
+      "id": 5,
+      "topic": "Optimization",
+      "difficulty": "Medium",
+      "question": "How does Adam optimizer differ fundamentally from standard Stochastic Gradient Descent (SGD)?",
+      "options": {
+        "A": "Adam does not compute gradients of the loss function",
+        "B": "Adam computes adaptive individual learning rates for each parameter using first and second moments of gradients",
+        "C": "Adam works only on convex quadratic surfaces",
+        "D": "Adam executes strictly on CPU without tensor math"
+      },
+      "correctAnswer": "B",
+      "explanation": "Adam combines momentum (first moment estimate) with RMSprop (second uncentered moment estimate)."
+    },
+    {
+      "id": 6,
+      "topic": "Deep Learning",
+      "difficulty": "Easy",
+      "question": "What is an epoch in deep learning training?",
+      "options": {
+        "A": "The time taken to execute one gradient descent step on a mini-batch",
+        "B": "One complete pass through the entire training dataset",
+        "C": "The total number of layers in a convolutional network",
+        "D": "The learning rate decay schedule"
+      },
+      "correctAnswer": "B",
+      "explanation": "An epoch is completed when every sample in the training set has been passed through the network once."
+    },
+    {
+      "id": 7,
+      "topic": "NLP & Transformers",
+      "difficulty": "Medium",
+      "question": "In the Transformer architecture, what is the role of Positional Encodings?",
+      "options": {
+        "A": "To normalize word embedding vector magnitudes",
+        "B": "To inject information about token order/sequence position since self-attention is permutation-invariant",
+        "C": "To prevent vanishing gradients in deep feedforward layers",
+        "D": "To perform named entity recognition"
+      },
+      "correctAnswer": "B",
+      "explanation": "Self-attention operations do not inherently encode token order; positional encodings provide sequence positioning."
+    },
+    {
+      "id": 8,
+      "topic": "Computer Vision",
+      "difficulty": "Medium",
+      "question": "What does Max Pooling achieve in a CNN?",
+      "options": {
+        "A": "Expands the spatial resolution of feature maps",
+        "B": "Downsamples spatial dimensions, reducing parameter count and providing translation invariance",
+        "C": "Computes pixel-wise softmax probabilities",
+        "D": "Inverts image color channels"
+      },
+      "correctAnswer": "B",
+      "explanation": "Max pooling retains the maximum activation in local patches, reducing tensor dimensions."
+    },
+    {
+      "id": 9,
+      "topic": "MLOps & Deployment",
+      "difficulty": "Hard",
+      "question": "What is model quantization in LLM and edge deployment?",
+      "options": {
+        "A": "Pruning half of the attention heads randomly",
+        "B": "Converting high-precision weights (e.g., FP32/FP16) to lower-precision integers (e.g., INT8/INT4) to reduce memory and accelerate inference",
+        "C": "Distributing weights across multiple GPUs",
+        "D": "Adding noise to weights to improve robustness"
+      },
+      "correctAnswer": "B",
+      "explanation": "Quantization reduces model memory footprint and arithmetic latency by representing weights with fewer bits."
+    },
+    {
+      "id": 10,
+      "topic": "Generative AI",
+      "difficulty": "Hard",
+      "question": "In Retrieval-Augmented Generation (RAG), how is external factual knowledge integrated into the LLM?",
+      "options": {
+        "A": "By fine-tuning all model weights on external documents each night",
+        "B": "By retrieving relevant text chunks using vector embedding similarity search and appending them to the prompt context",
+        "C": "By modifying the model vocabulary tokenizer",
+        "D": "By adjusting the model's temperature parameter to zero"
+      },
+      "correctAnswer": "B",
+      "explanation": "RAG queries a vector database for semantic context and inserts the retrieved passages into the inference prompt."
+    },
+    {
+      "id": 11,
+      "topic": "Deep Learning",
+      "difficulty": "Hard",
+      "question": "What problem does Batch Normalization primarily address?",
+      "options": {
+        "A": "Vanishing gradient in output softmax layer",
+        "B": "Internal covariate shift by normalizing layer inputs across the mini-batch to zero mean and unit variance",
+        "C": "Memory fragmentation in GPU VRAM",
+        "D": "Data leakage across cross-validation folds"
+      },
+      "correctAnswer": "B",
+      "explanation": "Batch norm stabilizes layer activation distributions across training batches, permitting higher learning rates."
+    },
+    {
+      "id": 12,
+      "topic": "Deep Learning",
+      "difficulty": "Easy",
+      "question": "Which loss function is standard for multi-class classification where target labels are mutually exclusive?",
+      "options": {
+        "A": "Binary Cross-Entropy (Log Loss)",
+        "B": "Categorical Cross-Entropy Loss",
+        "C": "Mean Absolute Error (L1)",
+        "D": "Contrastive Loss"
+      },
+      "correctAnswer": "B",
+      "explanation": "Categorical cross-entropy paired with a softmax activation evaluates multi-class categorical probabilities."
+    },
+    {
+      "id": 13,
+      "topic": "Computer Vision",
+      "difficulty": "Medium",
+      "question": "In Object Detection, what does Intersection over Union (IoU) evaluate?",
+      "options": {
+        "A": "The speed of frame processing in FPS",
+        "B": "The overlap between the predicted bounding box and the ground truth bounding box",
+        "C": "The depth map accuracy in stereo vision",
+        "D": "The ratio of positive to negative anchor boxes"
+      },
+      "correctAnswer": "B",
+      "explanation": "IoU = Area of Overlap / Area of Union, measuring bounding box localization precision."
+    },
+    {
+      "id": 14,
+      "topic": "NLP & Transformers",
+      "difficulty": "Medium",
+      "question": "What does temperature control during LLM text generation sampling?",
+      "options": {
+        "A": "The GPU clock frequency",
+        "B": "The sharpness/entropy of the next-token probability distribution (lower = more deterministic, higher = more creative)",
+        "C": "The maximum token length allowed in the response",
+        "D": "The size of the vector embedding dimension"
+      },
+      "correctAnswer": "B",
+      "explanation": "Dividing logits by temperature scales entropy: T < 1 concentrates probability on top logits; T > 1 flattens it."
+    },
+    {
+      "id": 15,
+      "topic": "Deep Learning",
+      "difficulty": "Medium",
+      "question": "Why do Residual Networks (ResNets) introduce skip/shortcut connections?",
+      "options": {
+        "A": "To reduce the number of convolution filters by half",
+        "B": "To allow gradients to flow directly backwards through identity shortcuts, enabling training of very deep networks without vanishing gradients",
+        "C": "To prevent GPU out-of-memory errors",
+        "D": "To perform image segmentation without pooling"
+      },
+      "correctAnswer": "B",
+      "explanation": "Identity skip connections let gradients propagate directly through the computational graph without degradation."
+    },
+    {
+      "id": 16,
+      "topic": "Generative AI",
+      "difficulty": "Hard",
+      "question": "In diffusion models for image generation, what is the 'reverse process'?",
+      "options": {
+        "A": "Calculating the negative gradient of an adversarial discriminator",
+        "B": "Sequentially predicting and removing noise from an initially Gaussian noise tensor to recover a clean image",
+        "C": "Converting raster images into SVG vector graphics",
+        "D": "Backpropagating pixel loss into text prompt tokens"
+      },
+      "correctAnswer": "B",
+      "explanation": "Diffusion trains a neural net (U-Net) to predict noise step-by-step, transforming pure Gaussian noise into structured images."
+    },
+    {
+      "id": 17,
+      "topic": "Deep Learning",
+      "difficulty": "Easy",
+      "question": "In PyTorch, which method call computes the gradients of a loss tensor with respect to model parameters?",
+      "options": {
+        "A": "optimizer.step()",
+        "B": "loss.backward()",
+        "C": "model.eval()",
+        "D": "torch.no_grad()"
+      },
+      "correctAnswer": "B",
+      "explanation": "loss.backward() executes reverse-mode automatic differentiation, accumulating gradients in .grad attributes."
+    },
+    {
+      "id": 18,
+      "topic": "NLP & Transformers",
+      "difficulty": "Hard",
+      "question": "What is Low-Rank Adaptation (LoRA) used for in LLM fine-tuning?",
+      "options": {
+        "A": "Pruning low-importance layers from the model",
+        "B": "Freezing pre-trained model weights and injecting small trainable rank-decomposition matrices into attention layers to drastically reduce fine-tuning memory",
+        "C": "Converting decoder-only models into encoder-decoder models",
+        "D": "Quantizing activations to 1-bit integers"
+      },
+      "correctAnswer": "B",
+      "explanation": "LoRA decomposes weight updates delta_W into products of low-rank matrices A and B, updating < 1% of total parameters."
+    },
+    {
+      "id": 19,
+      "topic": "MLOps & Deployment",
+      "difficulty": "Medium",
+      "question": "What is the primary difference between online (real-time) inference and batch inference?",
+      "options": {
+        "A": "Online inference handles single low-latency requests interactively; batch inference processes large volumes offline",
+        "B": "Online inference uses GPUs only; batch inference uses CPUs only",
+        "C": "Online inference requires quantization; batch inference does not",
+        "D": "Online inference updates model weights during execution"
+      },
+      "correctAnswer": "A",
+      "explanation": "Online inference requires sub-second response times for live API calls; batch jobs run periodic high-throughput queries."
+    },
+    {
+      "id": 20,
+      "topic": "Computer Vision",
+      "difficulty": "Hard",
+      "question": "In semantic segmentation architectures like U-Net, what is the role of skip connections between encoder and decoder?",
+      "options": {
+        "A": "To skip training every alternate epoch",
+        "B": "To transfer fine-grained spatial feature details directly from contracting path to expanding path for precise localization",
+        "C": "To compute class activation maps",
+        "D": "To perform global average pooling"
+      },
+      "correctAnswer": "B",
+      "explanation": "Skip connections concatenate high-resolution feature maps from encoder to decoder, preserving boundary details."
+    },
+    {
+      "id": 21,
+      "topic": "Deep Learning",
+      "difficulty": "Medium",
+      "question": "What does the learning rate hyperparameter directly control in gradient descent?",
+      "options": {
+        "A": "The size of the mini-batch",
+        "B": "The step size taken in the direction of the negative gradient when updating weights",
+        "C": "The depth of the neural network",
+        "D": "The weight initialization variance"
+      },
+      "correctAnswer": "B",
+      "explanation": "Weight update w = w - lr * grad. Too large learning rates cause divergence; too small causes slow convergence."
+    },
+    {
+      "id": 22,
+      "topic": "NLP & Transformers",
+      "difficulty": "Medium",
+      "question": "What is the primary role of Byte-Pair Encoding (BPE) or WordPiece tokenization?",
+      "options": {
+        "A": "To translate text between English and French",
+        "B": "To segment text into subword units, balancing vocabulary size with ability to represent out-of-vocabulary words",
+        "C": "To compute sentiment polarity scores",
+        "D": "To remove stop words from inputs"
+      },
+      "correctAnswer": "B",
+      "explanation": "Subword tokenizers decompose unknown words into frequent subword components, preventing out-of-vocabulary errors."
+    },
+    {
+      "id": 23,
+      "topic": "Optimization",
+      "difficulty": "Hard",
+      "question": "What is the purpose of Gradient Clipping in recurrent and deep networks?",
+      "options": {
+        "A": "To speed up data loading from disk",
+        "B": "To prevent exploding gradients by scaling down gradient vectors when their norm exceeds a specified threshold",
+        "C": "To eliminate negative gradient values",
+        "D": "To set gradients of dead neurons to zero"
+      },
+      "correctAnswer": "B",
+      "explanation": "Clipping normalizes gradient norm when it exceeds threshold c, preventing explosive weight updates."
+    },
+    {
+      "id": 24,
+      "topic": "Generative AI",
+      "difficulty": "Medium",
+      "question": "What is the function of Vector Embeddings in semantic search?",
+      "options": {
+        "A": "To compress image files into JPEG format",
+        "B": "To represent text as continuous dense vectors where semantic similarity correlates with geometric proximity (cosine distance)",
+        "C": "To encrypt text prompts before transmission",
+        "D": "To generate synthetic training labels"
+      },
+      "correctAnswer": "B",
+      "explanation": "Embeddings map semantic concepts into geometric vector space where related meanings have high cosine similarity."
+    },
+    {
+      "id": 25,
+      "topic": "Deep Learning",
+      "difficulty": "Easy",
+      "question": "Which function maps real-valued logits to a valid probability distribution that sums to 1.0?",
+      "options": {
+        "A": "Sigmoid",
+        "B": "Softmax",
+        "C": "Tanh",
+        "D": "Leaky ReLU"
+      },
+      "correctAnswer": "B",
+      "explanation": "Softmax computes exp(z_i) / sum(exp(z_j)), normalizing logits across all classes into probabilities summing to 1."
+    },
+    {
+      "id": 26,
+      "topic": "Computer Vision",
+      "difficulty": "Medium",
+      "question": "What is Transfer Learning?",
+      "options": {
+        "A": "Transferring model code from Python to C++",
+        "B": "Utilizing a pre-trained network trained on a large dataset (e.g., ImageNet) and fine-tuning it on a smaller target dataset",
+        "C": "Copying weights between GPU and CPU",
+        "D": "Transferring labels from training to test set"
+      },
+      "correctAnswer": "B",
+      "explanation": "Transfer learning leverages generic visual representations learned from large corpuses to solve niche tasks efficiently."
+    },
+    {
+      "id": 27,
+      "topic": "Deep Learning",
+      "difficulty": "Hard",
+      "question": "Why can an overly deep network experience vanishing gradients with Sigmoid or Tanh activations?",
+      "options": {
+        "A": "The derivatives of Sigmoid are < 0.25, so repeated chain rule multiplications shrink the gradient exponentially toward zero in early layers",
+        "B": "The loss function becomes non-differentiable at zero",
+        "C": "Floating point precision cannot represent negative numbers",
+        "D": "The learning rate becomes infinite"
+      },
+      "correctAnswer": "A",
+      "explanation": "Repeatedly multiplying derivatives bounded below 0.25 causes backpropagated gradients to vanish in early layers."
+    },
+    {
+      "id": 28,
+      "topic": "NLP & Transformers",
+      "difficulty": "Medium",
+      "question": "What does Cross-Attention compute in an Encoder-Decoder Transformer?",
+      "options": {
+        "A": "Attention between decoder queries and encoder key-value representations",
+        "B": "Attention between input text and random noise",
+        "C": "Attention between multiple GPUs",
+        "D": "Attention between layers in the same module"
+      },
+      "correctAnswer": "A",
+      "explanation": "Cross-attention allows decoder positions to attend over all positions in the input sequence from the encoder."
+    },
+    {
+      "id": 29,
+      "topic": "MLOps & Deployment",
+      "difficulty": "Medium",
+      "question": "What is ONNX (Open Neural Network Exchange)?",
+      "options": {
+        "A": "A cloud GPU hardware accelerator",
+        "B": "An open format built to represent machine learning models, allowing interoperability between frameworks (PyTorch, TensorFlow, TensorRT)",
+        "C": "A programming language replacing Python",
+        "D": "A vector database for embeddings"
+      },
+      "correctAnswer": "B",
+      "explanation": "ONNX enables models trained in PyTorch or TensorFlow to be exported to standardized runtimes for high-speed inference."
+    },
+    {
+      "id": 30,
+      "topic": "Generative AI",
+      "difficulty": "Hard",
+      "question": "In reinforcement learning from human feedback (RLHF), what role does the Reward Model serve?",
+      "options": {
+        "A": "It generates token embeddings for the input prompt",
+        "B": "It evaluates and scores candidate model responses according to human preferences to guide policy optimization (PPO)",
+        "C": "It monitors GPU temperature",
+        "D": "It detects copyrighted text"
+      },
+      "correctAnswer": "B",
+      "explanation": "The reward model acts as a proxy for human evaluators, scoring responses to train the LLM policy via reinforcement learning."
     }
   ],
   "ROLE_BACKEND_DEV": [
@@ -120,91 +848,1687 @@
       "id": 1,
       "topic": "Node.js Architecture",
       "difficulty": "Medium",
-      "question": "How does Node.js handle concurrent client connections despite running on a single main JavaScript thread?",
+      "question": "How does Node.js handle concurrent client connections despite running on a single main thread?",
       "options": {
-        "A": "It creates a new OS thread for each incoming HTTP request",
+        "A": "It spawns a new OS thread for each incoming HTTP request",
         "B": "It utilizes an asynchronous non-blocking event loop backed by the libuv thread pool for I/O operations",
-        "C": "It forks the entire Node process on every incoming socket connection",
+        "C": "It forks the entire process on every socket connection",
         "D": "It compiles JavaScript to parallelized C++ bytecode at runtime"
       },
       "correctAnswer": "B",
-      "explanation": "Node.js runs an event-driven loop on the main thread for coordination, offloading blocking asynchronous operations (file system, DNS, crypto) to the underlying libuv worker pool."
+      "explanation": "Node.js runs coordination on a single main thread, delegating asynchronous I/O to libuv worker threads."
     },
     {
       "id": 2,
-      "topic": "API Security & Auth",
+      "topic": "API Security",
       "difficulty": "Medium",
-      "question": "Where should a JSON Web Token (JWT) session token ideally be stored in browser clients to protect against Cross-Site Scripting (XSS)?",
+      "question": "Where should a sensitive JWT session token be stored in browser clients to prevent Cross-Site Scripting (XSS) extraction?",
       "options": {
         "A": "In window.localStorage",
         "B": "In an HttpOnly, Secure, SameSite cookie",
         "C": "In window.sessionStorage",
-        "D": "In a global JavaScript variable attached to window"
+        "D": "In a global JavaScript variable"
       },
       "correctAnswer": "B",
-      "explanation": "HttpOnly cookies cannot be accessed by client-side JavaScript, rendering stored authentication tokens immune to malicious XSS extraction scripts."
+      "explanation": "HttpOnly cookies cannot be read or stolen by client-side JavaScript scripts, protecting against XSS."
     },
     {
       "id": 3,
       "topic": "System Design",
       "difficulty": "Hard",
-      "question": "What problem does database indexing primarily solve, and what is its main trade-off?",
+      "question": "What problem does database indexing solve, and what is its primary trade-off?",
       "options": {
         "A": "Solves data compression; trades off CPU usage",
-        "B": "Speeds up data retrieval (SELECT); slows down write operations (INSERT, UPDATE, DELETE) and consumes extra disk space",
+        "B": "Speeds up data retrieval (SELECT); slows down writes (INSERT/UPDATE/DELETE) and consumes additional disk storage",
         "C": "Prevents SQL injection; increases query execution time",
         "D": "Enforces foreign keys; disables horizontal scaling"
       },
       "correctAnswer": "B",
-      "explanation": "Indexes (like B-Trees) drastically accelerate search lookups from O(N) full table scans to O(log N), but require extra disk storage and must be updated on every write operation."
+      "explanation": "B-Tree indexes reduce search complexity from O(N) to O(log N), but require extra space and maintenance on writes."
+    },
+    {
+      "id": 4,
+      "topic": "Database Architecture",
+      "difficulty": "Medium",
+      "question": "What does the 'A' in the database ACID acronym stand for?",
+      "options": {
+        "A": "Asynchronous",
+        "B": "Atomicity",
+        "C": "Availability",
+        "D": "Allocation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Atomicity guarantees that all statements in a transaction succeed completely, or all are rolled back with no partial writes."
+    },
+    {
+      "id": 5,
+      "topic": "RESTful APIs",
+      "difficulty": "Easy",
+      "question": "Which HTTP status code signifies that a requested resource was created successfully?",
+      "options": {
+        "A": "200 OK",
+        "B": "201 Created",
+        "C": "204 No Content",
+        "D": "301 Moved Permanently"
+      },
+      "correctAnswer": "B",
+      "explanation": "HTTP 201 Created is returned upon successful creation of a new resource (typically via POST)."
+    },
+    {
+      "id": 6,
+      "topic": "Caching & Redis",
+      "difficulty": "Medium",
+      "question": "What is the 'Cache-Aside' (Lazy Loading) pattern?",
+      "options": {
+        "A": "Application reads cache first; on miss, reads database and writes data into cache before returning",
+        "B": "Cache updates the database asynchronously in background batches",
+        "C": "Database writes to cache automatically on trigger",
+        "D": "Cache clears every 5 seconds regardless of traffic"
+      },
+      "correctAnswer": "A",
+      "explanation": "In Cache-Aside, application logic checks cache first, fetching from DB only upon cache misses."
+    },
+    {
+      "id": 7,
+      "topic": "API Security",
+      "difficulty": "Medium",
+      "question": "What is SQL Injection, and what is the primary defensive mechanism against it?",
+      "options": {
+        "A": "Injecting CSS into headers; prevented with CORS",
+        "B": "Malicious SQL code injected into user inputs; prevented by using Parameterized Queries / Prepared Statements",
+        "C": "Overloading server with connections; prevented with rate limiting",
+        "D": "Reading files from disk; prevented with chroot"
+      },
+      "correctAnswer": "B",
+      "explanation": "Prepared statements separate query structure from user parameters, rendering injected SQL syntax inert."
+    },
+    {
+      "id": 8,
+      "topic": "System Design",
+      "difficulty": "Hard",
+      "question": "According to the CAP Theorem, in the presence of a Network Partition (P), what trade-off must a distributed system make?",
+      "options": {
+        "A": "Between Performance and Security",
+        "B": "Between Consistency (C) and Availability (A)",
+        "C": "Between Throughput and Latency",
+        "D": "Between Read Speed and Write Speed"
+      },
+      "correctAnswer": "B",
+      "explanation": "When network partitions occur, distributed systems must choose either Consistency (CP) or Availability (AP)."
+    },
+    {
+      "id": 9,
+      "topic": "Node.js Architecture",
+      "difficulty": "Hard",
+      "question": "In Node.js, what is the difference between process.nextTick() and setImmediate()?",
+      "options": {
+        "A": "setImmediate() executes before the current event loop phase finishes; process.nextTick() executes in the next check phase",
+        "B": "process.nextTick() fires immediately after the current operation before the event loop continues; setImmediate() runs in the next check phase",
+        "C": "They are completely identical aliases",
+        "D": "process.nextTick() runs only on worker threads"
+      },
+      "correctAnswer": "B",
+      "explanation": "nextTick microtasks drain immediately before the event loop advances to the next phase."
+    },
+    {
+      "id": 10,
+      "topic": "RESTful APIs",
+      "difficulty": "Easy",
+      "question": "Which HTTP method is idempotent and intended for complete replacement of a resource?",
+      "options": {
+        "A": "POST",
+        "B": "PUT",
+        "C": "PATCH",
+        "D": "DELETE"
+      },
+      "correctAnswer": "B",
+      "explanation": "PUT replaces the resource entirely and is idempotent (calling it multiple times produces identical outcome)."
+    },
+    {
+      "id": 11,
+      "topic": "Database Architecture",
+      "difficulty": "Medium",
+      "question": "What is an N+1 Query Problem in Object-Relational Mappers (ORMs)?",
+      "options": {
+        "A": "A query that returns N+1 columns",
+        "B": "Executing 1 query to fetch parent records, followed by N separate queries to fetch related child records for each parent",
+        "C": "Inserting N records in 1 transaction",
+        "D": "A deadlock between N threads"
+      },
+      "correctAnswer": "B",
+      "explanation": "N+1 happens when relationships are lazily loaded in loops; resolved using eager loading (JOINs)."
+    },
+    {
+      "id": 12,
+      "topic": "System Design",
+      "difficulty": "Hard",
+      "question": "What is the purpose of a Reverse Proxy (such as Nginx)?",
+      "options": {
+        "A": "To compile frontend React assets on client devices",
+        "B": "To sit between clients and backend servers for load balancing, SSL termination, caching, and security isolation",
+        "C": "To replicate database shards across continents",
+        "D": "To execute database migrations automatically"
+      },
+      "correctAnswer": "B",
+      "explanation": "A reverse proxy forwards client requests to backend services, handling TLS, load distribution, and compression."
+    },
+    {
+      "id": 13,
+      "topic": "API Security",
+      "difficulty": "Medium",
+      "question": "What does Cross-Origin Resource Sharing (CORS) protect against?",
+      "options": {
+        "A": "Server memory overflow attacks",
+        "B": "Unauthorized cross-origin requests initiated by client-side browser scripts to different domains",
+        "C": "SQL injection attacks",
+        "D": "Password dictionary attacks"
+      },
+      "correctAnswer": "B",
+      "explanation": "CORS is a browser security mechanism that restricts resources requested from a different origin domain."
+    },
+    {
+      "id": 14,
+      "topic": "Caching & Redis",
+      "difficulty": "Medium",
+      "question": "What does a Cache Stampede (Thundering Herd) describe?",
+      "options": {
+        "A": "When a cache node runs out of physical memory",
+        "B": "When a popular cached key expires, and thousands of concurrent requests simultaneously hit the database to recompute it",
+        "C": "When cache eviction deletes keys in FIFO order",
+        "D": "When network latency exceeds 10 seconds"
+      },
+      "correctAnswer": "B",
+      "explanation": "Simultaneous cache misses on a hot key can overwhelm database servers; mitigated with mutex locks or probabilistic early expiry."
+    },
+    {
+      "id": 15,
+      "topic": "RESTful APIs",
+      "difficulty": "Medium",
+      "question": "What is the difference between PUT and PATCH in REST design?",
+      "options": {
+        "A": "PUT is for creating; PATCH is for deleting",
+        "B": "PUT replaces the entire resource; PATCH applies partial modifications to specific fields",
+        "C": "PATCH is idempotent; PUT is not",
+        "D": "PUT cannot accept JSON bodies"
+      },
+      "correctAnswer": "B",
+      "explanation": "PUT provides full replacement of the entity; PATCH updates only the supplied delta of attributes."
+    },
+    {
+      "id": 16,
+      "topic": "Database Architecture",
+      "difficulty": "Hard",
+      "question": "What is Database Sharding?",
+      "options": {
+        "A": "Backing up tables to cold storage tape drives",
+        "B": "Horizontally partitioning a database table across multiple independent physical database instances based on a shard key",
+        "C": "Creating duplicate indexes on foreign keys",
+        "D": "Normalizing a schema to 3rd Normal Form"
+      },
+      "correctAnswer": "B",
+      "explanation": "Sharding splits rows horizontally across distinct database servers to scale write throughput and storage."
+    },
+    {
+      "id": 17,
+      "topic": "Node.js Architecture",
+      "difficulty": "Medium",
+      "question": "Which core module in Node.js handles stream processing for large files?",
+      "options": {
+        "A": "fs and stream",
+        "B": "cluster",
+        "C": "v8",
+        "D": "dns"
+      },
+      "correctAnswer": "A",
+      "explanation": "The stream module processes chunks of data iteratively without buffering the entire file in RAM."
+    },
+    {
+      "id": 18,
+      "topic": "System Design",
+      "difficulty": "Medium",
+      "question": "What is Rate Limiting used for in API gateways?",
+      "options": {
+        "A": "Compressing JSON responses to gzip",
+        "B": "Restricting the number of requests a client can make in a specified time window to prevent abuse and denial of service",
+        "C": "Limiting database connection pool sizes",
+        "D": "Enforcing password complexity requirements"
+      },
+      "correctAnswer": "B",
+      "explanation": "Rate limiting protects services from brute-force, scraping, and DoS attacks by capping request volume."
+    },
+    {
+      "id": 19,
+      "topic": "System Design",
+      "difficulty": "Hard",
+      "question": "What is an event-driven architecture with message brokers (e.g., RabbitMQ, Kafka) primarily used for?",
+      "options": {
+        "A": "Rendering React components on server",
+        "B": "Decoupling services, handling asynchronous background jobs, and buffering traffic spikes",
+        "C": "Replacing SQL databases entirely",
+        "D": "Validating SSL certificates"
+      },
+      "correctAnswer": "B",
+      "explanation": "Message queues allow asynchronous task distribution and smooth out peak load spikes between decoupled microservices."
+    },
+    {
+      "id": 20,
+      "topic": "API Security",
+      "difficulty": "Easy",
+      "question": "Why should passwords never be stored in plain text or with simple MD5 hashes?",
+      "options": {
+        "A": "They increase database table storage size",
+        "B": "They are easily cracked via precomputed rainbow tables; salted adaptive hashing algorithms (bcrypt, Argon2) must be used",
+        "C": "SQL cannot index strings longer than 16 characters",
+        "D": "Browsers reject plain text passwords automatically"
+      },
+      "correctAnswer": "B",
+      "explanation": "bcrypt/Argon2 incorporate unique salts and adjustable work factors (stretching) to defeat brute-force and rainbow tables."
+    },
+    {
+      "id": 21,
+      "topic": "Database Architecture",
+      "difficulty": "Medium",
+      "question": "In SQL transactions, what does Isolation level prevent?",
+      "options": {
+        "A": "Network disconnects during query execution",
+        "B": "Concurrency anomalies such as Dirty Reads, Non-Repeatable Reads, and Phantom Reads",
+        "C": "Foreign key constraints",
+        "D": "Index fragmentation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Transaction isolation levels (Read Committed, Repeatable Read, Serializable) isolate concurrent operations."
+    },
+    {
+      "id": 22,
+      "topic": "Node.js Architecture",
+      "difficulty": "Medium",
+      "question": "What happens if an unhandled promise rejection occurs in modern Node.js?",
+      "options": {
+        "A": "Node ignores it and continues silently",
+        "B": "The Node.js process terminates with a non-zero exit code by default",
+        "C": "The operating system restarts the server hardware",
+        "D": "The browser client receives a 200 OK status"
+      },
+      "correctAnswer": "B",
+      "explanation": "In modern Node.js, unhandled promise rejections trigger an unhandledRejection event and terminate the process."
+    },
+    {
+      "id": 23,
+      "topic": "RESTful APIs",
+      "difficulty": "Easy",
+      "question": "Which HTTP status code is appropriate when a client is authenticated but lacks permission to access the resource?",
+      "options": {
+        "A": "401 Unauthorized",
+        "B": "403 Forbidden",
+        "C": "404 Not Found",
+        "D": "400 Bad Request"
+      },
+      "correctAnswer": "B",
+      "explanation": "401 means unauthenticated (login required); 403 means authenticated but unauthorized (forbidden access)."
+    },
+    {
+      "id": 24,
+      "topic": "System Design",
+      "difficulty": "Hard",
+      "question": "What is connection pooling in database drivers?",
+      "options": {
+        "A": "Pooling multiple database tables into one",
+        "B": "Maintaining a cache of open database connections that are reused across requests, avoiding expensive connection setup overhead",
+        "C": "Compressing SQL queries before transmission",
+        "D": "Running database queries over UDP instead of TCP"
+      },
+      "correctAnswer": "B",
+      "explanation": "Connection pools reuse active sockets to eliminate the TCP/TLS handshake latency of establishing connections repeatedly."
+    },
+    {
+      "id": 25,
+      "topic": "Database Architecture",
+      "difficulty": "Medium",
+      "question": "What is the primary difference between SQL (relational) and NoSQL (document/key-value) databases?",
+      "options": {
+        "A": "SQL databases cannot store text strings",
+        "B": "SQL databases enforce structured schemas and ACID relational joins; NoSQL provides flexible schemas and horizontal scalability",
+        "C": "NoSQL databases do not support primary keys",
+        "D": "SQL databases run exclusively in web browsers"
+      },
+      "correctAnswer": "B",
+      "explanation": "Relational databases emphasize structured integrity and transactions; NoSQL prioritizes partition tolerance and schema flexibility."
+    },
+    {
+      "id": 26,
+      "topic": "API Security",
+      "difficulty": "Medium",
+      "question": "What header does a client use to pass a Bearer token in an HTTP request?",
+      "options": {
+        "A": "Cookie",
+        "B": "Authorization",
+        "C": "X-Access-Token",
+        "D": "Proxy-Authenticate"
+      },
+      "correctAnswer": "B",
+      "explanation": "The standard Authorization header uses the format: Authorization: Bearer <token>."
+    },
+    {
+      "id": 27,
+      "topic": "Node.js Architecture",
+      "difficulty": "Hard",
+      "question": "What is the Node.js Cluster module used for?",
+      "options": {
+        "A": "Connecting to Redis clusters",
+        "B": "Forking child worker processes that share server ports, allowing a Node application to utilize multiple CPU cores",
+        "C": "Running browser scripts in headless mode",
+        "D": "Managing npm package dependencies"
+      },
+      "correctAnswer": "B",
+      "explanation": "Cluster spawns worker processes communicating via IPC, scaling single-threaded Node apps across all server CPU cores."
+    },
+    {
+      "id": 28,
+      "topic": "System Design",
+      "difficulty": "Medium",
+      "question": "What is the main benefit of implementing health check endpoints (/health) on microservices?",
+      "options": {
+        "A": "To measure API code coverage",
+        "B": "To allow orchestrators (Kubernetes, load balancers) to monitor service status and route traffic away from unhealthy instances",
+        "C": "To clear cache memory automatically",
+        "D": "To backup database records hourly"
+      },
+      "correctAnswer": "B",
+      "explanation": "Health checks allow load balancers and orchestrators to automatically restart failed containers or remove them from pools."
+    },
+    {
+      "id": 29,
+      "topic": "RESTful APIs",
+      "difficulty": "Medium",
+      "question": "What is idempotency in the context of API design?",
+      "options": {
+        "A": "The ability of an API to handle 10,000 requests per second",
+        "B": "The property where making multiple identical requests has the same outcome as making a single request",
+        "C": "Ensuring all responses are returned in XML format",
+        "D": "Encrypting request payloads with AES-256"
+      },
+      "correctAnswer": "B",
+      "explanation": "GET, PUT, and DELETE are idempotent because repeating the identical call produces no additional state side-effects."
+    },
+    {
+      "id": 30,
+      "topic": "Database Architecture",
+      "difficulty": "Hard",
+      "question": "What is an optimistic concurrency control strategy in database updates?",
+      "options": {
+        "A": "Locking the entire table during read operations",
+        "B": "Checking a record version/timestamp before writing to ensure no concurrent modification occurred between read and write",
+        "C": "Disabling transactions to maximize write speed",
+        "D": "Executing all writes asynchronously without waiting for acknowledgment"
+      },
+      "correctAnswer": "B",
+      "explanation": "Optimistic locking assumes collisions are rare, verifying version/timestamp upon commit to reject conflicting updates."
     }
   ],
   "ROLE_DATA_ANALYST": [
     {
       "id": 1,
-      "topic": "SQL & Aggregations",
+      "topic": "SQL",
       "difficulty": "Easy",
       "question": "What is the difference between UNION and UNION ALL in SQL?",
       "options": {
-        "A": "UNION combines different databases; UNION ALL combines tables in the same database",
-        "B": "UNION eliminates duplicate rows with an implicit sort; UNION ALL retains all rows including duplicates and is faster",
-        "C": "UNION is for numeric data only; UNION ALL is for strings",
-        "D": "UNION requires the same table structure; UNION ALL works across dissimilar schemas"
+        "A": "UNION combines tables from different databases; UNION ALL is for one database",
+        "B": "UNION removes duplicate rows with an implicit sort; UNION ALL retains all rows including duplicates and is faster",
+        "C": "UNION is for numeric columns only; UNION ALL is for text",
+        "D": "UNION requires matching table schemas; UNION ALL does not"
       },
       "correctAnswer": "B",
-      "explanation": "UNION runs a distinct de-duplication step, whereas UNION ALL directly concatenates the result sets, making it significantly faster when duplicates are acceptable or absent."
+      "explanation": "UNION runs an internal de-duplication pass; UNION ALL directly appends datasets without deduplication."
+    },
+    {
+      "id": 2,
+      "topic": "Data Wrangling",
+      "difficulty": "Easy",
+      "question": "In Pandas, which method returns summary statistics (count, mean, std, min, max, quartiles) for numeric columns?",
+      "options": {
+        "A": "df.info()",
+        "B": "df.describe()",
+        "C": "df.summary()",
+        "D": "df.head()"
+      },
+      "correctAnswer": "B",
+      "explanation": "df.describe() generates five-number summaries and central tendency statistics for numeric series."
+    },
+    {
+      "id": 3,
+      "topic": "SQL",
+      "difficulty": "Medium",
+      "question": "What does a LEFT JOIN return?",
+      "options": {
+        "A": "Only rows that have matching values in both tables",
+        "B": "All rows from the left table, along with matching rows from the right table (filling NULLs where no match exists)",
+        "C": "All rows from the right table only",
+        "D": "The Cartesian product of both tables"
+      },
+      "correctAnswer": "B",
+      "explanation": "LEFT JOIN retains every record from the left relation, pairing right relation data where keys match."
+    },
+    {
+      "id": 4,
+      "topic": "Data Visualization",
+      "difficulty": "Easy",
+      "question": "Which chart type is best suited for displaying the distribution and spread of a continuous variable across categories?",
+      "options": {
+        "A": "Pie Chart",
+        "B": "Box Plot (Box-and-Whisker)",
+        "C": "Stacked Area Chart",
+        "D": "Radar Chart"
+      },
+      "correctAnswer": "B",
+      "explanation": "Box plots display median, IQR, quartiles, and outliers across categorical cohorts compactly."
+    },
+    {
+      "id": 5,
+      "topic": "Statistics",
+      "difficulty": "Easy",
+      "question": "What is the difference between mean and median?",
+      "options": {
+        "A": "Mean is the middle value; median is the arithmetic average",
+        "B": "Mean is the arithmetic average (sensitive to outliers); median is the 50th percentile middle value (robust to outliers)",
+        "C": "Mean is for categorical data; median is for numeric data",
+        "D": "They are always mathematically identical"
+      },
+      "correctAnswer": "B",
+      "explanation": "The mean sums values divided by n; the median finds the center point and is unaffected by extreme skewness."
+    },
+    {
+      "id": 6,
+      "topic": "SQL",
+      "difficulty": "Medium",
+      "question": "What does the SQL GROUP BY statement do?",
+      "options": {
+        "A": "Sorts records alphabetically",
+        "B": "Collapses rows that have the same values in specified columns into summary rows for aggregate functions",
+        "C": "Creates a temporary index on columns",
+        "D": "Filters rows before table joins"
+      },
+      "correctAnswer": "B",
+      "explanation": "GROUP BY aggregates multiple records sharing identical attributes into group summary rows."
+    },
+    {
+      "id": 7,
+      "topic": "Data Wrangling",
+      "difficulty": "Medium",
+      "question": "How do you drop duplicate rows based on specific columns in Pandas?",
+      "options": {
+        "A": "df.remove_duplicates(columns=['A'])",
+        "B": "df.drop_duplicates(subset=['A'])",
+        "C": "df.unique(axis=1)",
+        "D": "df.filter(distinct=True)"
+      },
+      "correctAnswer": "B",
+      "explanation": "df.drop_duplicates(subset=[...]) identifies and removes duplicate rows based on subset criteria."
+    },
+    {
+      "id": 8,
+      "topic": "SQL",
+      "difficulty": "Hard",
+      "question": "What is a Common Table Expression (CTE) in SQL?",
+      "options": {
+        "A": "A permanent database table with clustered index",
+        "B": "A temporary named result set defined with a WITH clause that exists only during query execution",
+        "C": "An encrypted database connection",
+        "D": "A stored procedure that accepts parameters"
+      },
+      "correctAnswer": "B",
+      "explanation": "CTEs (WITH query_name AS (...)) create readable temporary result sets that can be referenced in primary queries."
+    },
+    {
+      "id": 9,
+      "topic": "Business Intelligence",
+      "difficulty": "Medium",
+      "question": "In data modeling, what is the fundamental difference between a Star Schema and a Snowflake Schema?",
+      "options": {
+        "A": "Star schemas use NoSQL; snowflake schemas use PostgreSQL",
+        "B": "Star schema dimension tables are denormalized; snowflake schema dimension tables are normalized into sub-dimensions",
+        "C": "Star schemas have no fact tables",
+        "D": "Snowflake schemas cannot store dates"
+      },
+      "correctAnswer": "B",
+      "explanation": "Star schemas connect denormalized dimensions directly to central facts; snowflake normalizes dimensions into hierarchies."
+    },
+    {
+      "id": 10,
+      "topic": "Data Wrangling",
+      "difficulty": "Easy",
+      "question": "In Pandas, which function is used to handle missing values by replacing them with a fixed constant or calculated metric?",
+      "options": {
+        "A": "df.dropna()",
+        "B": "df.fillna()",
+        "C": "df.replace_null()",
+        "D": "df.impute()"
+      },
+      "correctAnswer": "B",
+      "explanation": "df.fillna(value) substitutes missing NaN values with specified values or column statistics."
+    },
+    {
+      "id": 11,
+      "topic": "SQL",
+      "difficulty": "Hard",
+      "question": "Which SQL window function computes a cumulative moving total over ordered records?",
+      "options": {
+        "A": "SUM(amount) OVER (ORDER BY date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)",
+        "B": "COUNT(amount) GROUP BY date",
+        "C": "ROLLUP(amount)",
+        "D": "CUBE(amount)"
+      },
+      "correctAnswer": "A",
+      "explanation": "Window functions with running frames compute cumulative aggregates without collapsing rows."
+    },
+    {
+      "id": 12,
+      "topic": "Data Visualization",
+      "difficulty": "Medium",
+      "question": "When is a Line Chart most appropriate compared to a Bar Chart?",
+      "options": {
+        "A": "When comparing unrelated categorical items",
+        "B": "When illustrating trends and changes in continuous data over time (time series)",
+        "C": "When showing parts of a whole summing to 100%",
+        "D": "When plotting high-dimensional clusters"
+      },
+      "correctAnswer": "B",
+      "explanation": "Line charts connect continuous data points, emphasizing direction, trends, and seasonal changes over time."
+    },
+    {
+      "id": 13,
+      "topic": "Statistics",
+      "difficulty": "Medium",
+      "question": "What does the Interquartile Range (IQR) represent?",
+      "options": {
+        "A": "The difference between maximum and minimum values",
+        "B": "The range of the middle 50% of data (Q3 - Q1)",
+        "C": "The standard deviation divided by mean",
+        "D": "The difference between mean and mode"
+      },
+      "correctAnswer": "B",
+      "explanation": "IQR = 75th percentile (Q3) - 25th percentile (Q1), defining the dispersion of the middle half of data."
+    },
+    {
+      "id": 14,
+      "topic": "SQL",
+      "difficulty": "Medium",
+      "question": "What is the result of using a FULL OUTER JOIN?",
+      "options": {
+        "A": "Only matching records from both tables",
+        "B": "All records from both tables, joining where keys match and inserting NULLs for missing relationships on either side",
+        "C": "A Cartesian product of all rows",
+        "D": "An empty dataset if any NULL exists"
+      },
+      "correctAnswer": "B",
+      "explanation": "FULL OUTER JOIN combines the results of both LEFT and RIGHT outer joins."
+    },
+    {
+      "id": 15,
+      "topic": "Data Wrangling",
+      "difficulty": "Medium",
+      "question": "What does the Pandas `df.pivot_table()` function perform?",
+      "options": {
+        "A": "Transposes rows and columns with no aggregation",
+        "B": "Reshapes data by turning unique values from one column into multiple columns with an aggregate summary metric",
+        "C": "Deletes duplicate rows",
+        "D": "Exports data to SQLite"
+      },
+      "correctAnswer": "B",
+      "explanation": "pivot_table reshapes multidimensional data into spreadsheet-style pivot summaries with aggregation."
+    },
+    {
+      "id": 16,
+      "topic": "Business Intelligence",
+      "difficulty": "Easy",
+      "question": "What is a KPI (Key Performance Indicator)?",
+      "options": {
+        "A": "A database encryption key",
+        "B": "A measurable metric that tracks how effectively a company is achieving key business objectives",
+        "C": "A primary key constraint in SQL",
+        "D": "An algorithm complexity rating"
+      },
+      "correctAnswer": "B",
+      "explanation": "KPIs (e.g., Churn Rate, CAC, LTV, MRR) quantify performance progress toward operational targets."
+    },
+    {
+      "id": 17,
+      "topic": "SQL",
+      "difficulty": "Easy",
+      "question": "Which SQL command is used to sort query results in descending order?",
+      "options": {
+        "A": "SORT DOWN",
+        "B": "ORDER BY column DESC",
+        "C": "GROUP BY column DESC",
+        "D": "ARRANGE DESC"
+      },
+      "correctAnswer": "B",
+      "explanation": "ORDER BY column DESC orders result records from highest to lowest."
+    },
+    {
+      "id": 18,
+      "topic": "Data Visualization",
+      "difficulty": "Easy",
+      "question": "Why are 3D Pie Charts generally discouraged in professional data visualization dashboards?",
+      "options": {
+        "A": "They consume too much server GPU memory",
+        "B": "Perspective distortion skews angles and makes area comparison deceptive to human visual perception",
+        "C": "They only work on touchscreen monitors",
+        "D": "SQL databases cannot export to 3D"
+      },
+      "correctAnswer": "B",
+      "explanation": "3D angles distort wedge proportions, causing foreground slices to appear deceptively larger than true values."
+    },
+    {
+      "id": 19,
+      "topic": "Data Wrangling",
+      "difficulty": "Hard",
+      "question": "What does Pandas `df.melt()` do?",
+      "options": {
+        "A": "Converts wide-format DataFrames into long-format DataFrames by unpivoting columns into key-value pairs",
+        "B": "Merges two DataFrames on index",
+        "C": "Deletes null values permanently",
+        "D": "Converts data to JSON format"
+      },
+      "correctAnswer": "A",
+      "explanation": "melt unpivots wide columns into tidy long rows, ideal for analytical reshaping."
+    },
+    {
+      "id": 20,
+      "topic": "Statistics",
+      "difficulty": "Medium",
+      "question": "What does a correlation of -0.85 between variable X and variable Y indicate?",
+      "options": {
+        "A": "A weak positive linear relationship",
+        "B": "A strong negative linear relationship (as X increases, Y tends to decrease)",
+        "C": "There is no relationship between X and Y",
+        "D": "X causes Y to decrease"
+      },
+      "correctAnswer": "B",
+      "explanation": "Negative values near -1 indicate strong inverse linear associations (correlation does not imply causation)."
+    },
+    {
+      "id": 21,
+      "topic": "SQL",
+      "difficulty": "Medium",
+      "question": "What is the difference between COUNT(*) and COUNT(column_name) in SQL?",
+      "options": {
+        "A": "COUNT(*) counts all rows including NULLs; COUNT(column_name) counts only rows where the column value is NOT NULL",
+        "B": "COUNT(*) is slower than COUNT(column_name) in all cases",
+        "C": "COUNT(column_name) deletes nulls from the table",
+        "D": "They are completely identical in all SQL engines"
+      },
+      "correctAnswer": "A",
+      "explanation": "COUNT(*) tallies every tuple; COUNT(col) excludes records where that specific column contains NULL."
+    },
+    {
+      "id": 22,
+      "topic": "Business Intelligence",
+      "difficulty": "Medium",
+      "question": "What is cohort analysis primarily used for in product analytics?",
+      "options": {
+        "A": "Estimating server cloud hosting bills",
+        "B": "Tracking the behavioral retention and churn of user groups who share a common characteristic (such as signup month) over time",
+        "C": "Measuring database query execution time",
+        "D": "Cleaning duplicate customer emails"
+      },
+      "correctAnswer": "B",
+      "explanation": "Cohort analysis breaks user populations into time-grouped cohorts to evaluate lifecycle retention."
+    },
+    {
+      "id": 23,
+      "topic": "SQL",
+      "difficulty": "Hard",
+      "question": "What does the SQL `CASE WHEN ... THEN ... ELSE ... END` construct enable?",
+      "options": {
+        "A": "Executing DDL schema migrations",
+        "B": "Conditional branching logic directly within SELECT, WHERE, and GROUP BY expressions",
+        "C": "Looping through records with cursors",
+        "D": "Creating foreign key constraints"
+      },
+      "correctAnswer": "B",
+      "explanation": "CASE expressions provide if-then-else conditional evaluation inside SQL queries."
+    },
+    {
+      "id": 24,
+      "topic": "Data Wrangling",
+      "difficulty": "Easy",
+      "question": "How do you filter rows in a Pandas DataFrame where column 'age' is greater than 25?",
+      "options": {
+        "A": "df.filter(age > 25)",
+        "B": "df[df['age'] > 25]",
+        "C": "df.select('age > 25')",
+        "D": "df.where('age > 25')"
+      },
+      "correctAnswer": "B",
+      "explanation": "Boolean indexing `df[df['age'] > 25]` evaluates a boolean mask to filter rows."
+    },
+    {
+      "id": 25,
+      "topic": "Data Visualization",
+      "difficulty": "Medium",
+      "question": "What is a Heatmap primarily used to visualize?",
+      "options": {
+        "A": "3D topographical elevation models",
+        "B": "A 2D matrix of values where individual values are represented by varying color intensities (e.g., correlation matrix)",
+        "C": "System network hardware temperatures",
+        "D": "Single-column categorical counts"
+      },
+      "correctAnswer": "B",
+      "explanation": "Heatmaps use color gradients across a matrix to highlight magnitude, correlation, and density patterns."
+    },
+    {
+      "id": 26,
+      "topic": "Statistics",
+      "difficulty": "Easy",
+      "question": "In a standard normal distribution, approximately what percentage of data falls within 1 standard deviation of the mean?",
+      "options": {
+        "A": "50%",
+        "B": "68%",
+        "C": "95%",
+        "D": "99.7%"
+      },
+      "correctAnswer": "B",
+      "explanation": "By the empirical rule (68-95-99.7 rule), ~68% of normal distribution values lie within 1 standard deviation."
+    },
+    {
+      "id": 27,
+      "topic": "SQL",
+      "difficulty": "Medium",
+      "question": "What is the purpose of the `COALESCE()` function in SQL?",
+      "options": {
+        "A": "Combines two strings together",
+        "B": "Returns the first non-null expression from a list of arguments",
+        "C": "Deletes null rows from a table",
+        "D": "Calculates average excluding zeros"
+      },
+      "correctAnswer": "B",
+      "explanation": "COALESCE(col1, col2, default_val) returns the first non-NULL expression in sequence."
+    },
+    {
+      "id": 28,
+      "topic": "Data Wrangling",
+      "difficulty": "Medium",
+      "question": "In Pandas, which method converts a column of date strings into datetime objects?",
+      "options": {
+        "A": "pd.to_datetime(df['date'])",
+        "B": "df['date'].as_date()",
+        "C": "pd.format_date(df['date'])",
+        "D": "df['date'].cast('date')"
+      },
+      "correctAnswer": "A",
+      "explanation": "pd.to_datetime() parses string timestamps into standardized Pandas Timestamp objects."
+    },
+    {
+      "id": 29,
+      "topic": "Business Intelligence",
+      "difficulty": "Hard",
+      "question": "What does Customer Churn Rate measure?",
+      "options": {
+        "A": "The percentage of website visitors who convert to paid users",
+        "B": "The percentage of customers who stop doing business or cancel their subscriptions over a specified timeframe",
+        "C": "The average customer acquisition cost",
+        "D": "The ratio of customer complaints to sales"
+      },
+      "correctAnswer": "B",
+      "explanation": "Churn Rate = (Customers lost during period / Total customers at start of period) * 100."
+    },
+    {
+      "id": 30,
+      "topic": "SQL",
+      "difficulty": "Hard",
+      "question": "Which SQL operator checks whether a subquery returns ANY rows at all?",
+      "options": {
+        "A": "IN",
+        "B": "EXISTS",
+        "C": "BETWEEN",
+        "D": "LIKE"
+      },
+      "correctAnswer": "B",
+      "explanation": "EXISTS checks for presence of matching records and halts evaluation on first match, making it efficient."
     }
   ],
   "ROLE_PYTHON_DEV": [
     {
       "id": 1,
-      "topic": "Python Internals",
+      "topic": "Python Core",
       "difficulty": "Medium",
       "question": "What is the Global Interpreter Lock (GIL) in CPython?",
       "options": {
-        "A": "A security module preventing unauthorized code imports",
-        "B": "A mutex that prevents multiple native threads from executing Python bytecodes simultaneously",
-        "C": "A deadlock prevention mechanism inside the garbage collector",
-        "D": "A database connection pool manager"
+        "A": "A security sandbox preventing arbitrary file imports",
+        "B": "A mutex that prevents multiple native OS threads from executing Python bytecodes simultaneously",
+        "C": "A memory leak prevention algorithm in the garbage collector",
+        "D": "A package manager for virtual environments"
       },
       "correctAnswer": "B",
-      "explanation": "CPython's GIL ensures thread safety for memory management (reference counts) by permitting only one native thread to execute Python bytecode at any given moment."
+      "explanation": "CPython's GIL ensures thread safety for memory management by restricting bytecode execution to 1 thread at a time."
+    },
+    {
+      "id": 2,
+      "topic": "Python Core",
+      "difficulty": "Easy",
+      "question": "Which of the following built-in data types in Python is IMMUTABLE?",
+      "options": {
+        "A": "list",
+        "B": "dict",
+        "C": "tuple",
+        "D": "set"
+      },
+      "correctAnswer": "C",
+      "explanation": "Tuples, strings, and integers are immutable; lists, dictionaries, and sets are mutable."
+    },
+    {
+      "id": 3,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What does the `yield` keyword do inside a Python function?",
+      "options": {
+        "A": "Terminates the program execution immediately",
+        "B": "Turns the function into a generator that produces values lazily on iteration",
+        "C": "Throws an unhandled exception",
+        "D": "Allocates a new process thread"
+      },
+      "correctAnswer": "B",
+      "explanation": "yield pauses function execution, returning a value and maintaining local state for generator resumption."
+    },
+    {
+      "id": 4,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What is a Python Decorator?",
+      "options": {
+        "A": "A CSS style rule for web pages",
+        "B": "A callable function that takes another function as an argument and extends its behavior without modifying its source",
+        "C": "A class that implements the Singleton pattern",
+        "D": "A garbage collection optimization flag"
+      },
+      "correctAnswer": "B",
+      "explanation": "Decorators (@decorator_name) wrap functions, modifying inputs, outputs, or execution behavior dynamically."
+    },
+    {
+      "id": 5,
+      "topic": "Python OOP",
+      "difficulty": "Easy",
+      "question": "What is the role of `__init__` in a Python class definition?",
+      "options": {
+        "A": "It destroys the object when garbage collected",
+        "B": "It is the constructor initializer method called when a new instance of the class is created",
+        "C": "It defines static class variables",
+        "D": "It compiles the class to C code"
+      },
+      "correctAnswer": "B",
+      "explanation": "The __init__ method initializes attributes of newly created class instances."
+    },
+    {
+      "id": 6,
+      "topic": "Python Core",
+      "difficulty": "Hard",
+      "question": "What is the difference between `==` and `is` in Python?",
+      "options": {
+        "A": "`==` compares object identity (memory addresses); `is` compares equality of values",
+        "B": "`==` compares equality of values; `is` checks object identity (same memory address in RAM)",
+        "C": "They are completely identical in all versions of Python",
+        "D": "`is` is used only for numeric types"
+      },
+      "correctAnswer": "B",
+      "explanation": "`==` evaluates value equality via __eq__; `is` checks whether id(a) == id(b) (identity in memory)."
+    },
+    {
+      "id": 7,
+      "topic": "Python Asyncio",
+      "difficulty": "Hard",
+      "question": "In Python `asyncio`, what does the `await` keyword do?",
+      "options": {
+        "A": "Blocks the entire operating system process until completion",
+        "B": "Suspends the execution of the surrounding async coroutine, yielding control back to the event loop",
+        "C": "Forces synchronous execution on a background thread pool",
+        "D": "Cancels the active task"
+      },
+      "correctAnswer": "B",
+      "explanation": "await pauses the coroutine, allowing the single-threaded event loop to execute other tasks during I/O."
+    },
+    {
+      "id": 8,
+      "topic": "Python Core",
+      "difficulty": "Easy",
+      "question": "What is list comprehension in Python?",
+      "options": {
+        "A": "A tool that documents list functions",
+        "B": "A concise, expressive syntax for creating lists from iterables based on conditions",
+        "C": "A method that sorts lists in-place",
+        "D": "A memory profiler for collections"
+      },
+      "correctAnswer": "B",
+      "explanation": "List comprehension [f(x) for x in iterable if cond] provides a concise and fast way to construct lists."
+    },
+    {
+      "id": 9,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What is the difference between `deepcopy` and `shallow copy` in Python's `copy` module?",
+      "options": {
+        "A": "Shallow copy copies objects recursively; deepcopy copies only references",
+        "B": "Shallow copy constructs a new compound object but inserts references into original elements; deepcopy recursively copies all nested objects",
+        "C": "Deepcopy works only on primitive strings",
+        "D": "Shallow copy converts lists to tuples"
+      },
+      "correctAnswer": "B",
+      "explanation": "Deepcopy duplicates the entire object hierarchy so modifications to nested structures do not affect the original."
+    },
+    {
+      "id": 10,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What do `*args` and `**kwargs` allow in function parameter definitions?",
+      "options": {
+        "A": "Pointers and memory references like in C",
+        "B": "Passing variable numbers of positional arguments (*args) and keyword arguments (**kwargs)",
+        "C": "Defining abstract base class methods",
+        "D": "Enforcing static type checking at compile time"
+      },
+      "correctAnswer": "B",
+      "explanation": "*args collects extra positional parameters as a tuple; **kwargs collects named keyword arguments as a dictionary."
+    },
+    {
+      "id": 11,
+      "topic": "Python Core",
+      "difficulty": "Hard",
+      "question": "How does Python handle memory management and cleanup for objects?",
+      "options": {
+        "A": "Pure manual free() and malloc() calls like C",
+        "B": "Reference counting supplemented by a cyclic garbage collector to detect circular references",
+        "C": "Stop-the-world tracing GC only",
+        "D": "Allocating all memory on the OS call stack"
+      },
+      "correctAnswer": "B",
+      "explanation": "CPython tracks reference counts for instant deallocation, using generational GC to resolve cyclic references."
+    },
+    {
+      "id": 12,
+      "topic": "Python OOP",
+      "difficulty": "Medium",
+      "question": "What is the Method Resolution Order (MRO) in Python multiple inheritance?",
+      "options": {
+        "A": "The order in which files are imported",
+        "B": "The order in which Python searches for attributes and methods across class hierarchies (computed via C3 Linearization)",
+        "C": "The order in which variables are cleared from memory",
+        "D": "The alphabetical order of methods"
+      },
+      "correctAnswer": "B",
+      "explanation": "Python uses C3 Linearization algorithm to determine method resolution order across multiple inherited classes."
+    },
+    {
+      "id": 13,
+      "topic": "Python Core",
+      "difficulty": "Easy",
+      "question": "How do you open a file safely in Python to guarantee it closes even if exceptions occur?",
+      "options": {
+        "A": "file = open('data.txt'); file.close()",
+        "B": "with open('data.txt') as file:",
+        "C": "try { open('data.txt') }",
+        "D": "file = read('data.txt')"
+      },
+      "correctAnswer": "B",
+      "explanation": "Context managers (`with open(...)`) invoke __enter__ and __exit__, guaranteeing file descriptors close cleanly."
+    },
+    {
+      "id": 14,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What is the time complexity of looking up a key in a standard Python `dict`?",
+      "options": {
+        "A": "O(N) linear time",
+        "B": "O(1) average time complexity",
+        "C": "O(log N) logarithmic time",
+        "D": "O(N^2) quadratic time"
+      },
+      "correctAnswer": "B",
+      "explanation": "Python dictionaries use open-addressing hash tables with perturbation, achieving O(1) average key lookup."
+    },
+    {
+      "id": 15,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What is the purpose of the `__str__` vs `__repr__` dunder methods?",
+      "options": {
+        "A": "`__str__` is for debugging; `__repr__` is for end-users",
+        "B": "`__str__` provides human-readable representation; `__repr__` aims to provide unambiguous representation (often valid Python code)",
+        "C": "They are completely interchangeable",
+        "D": "`__repr__` converts objects to binary byte arrays"
+      },
+      "correctAnswer": "B",
+      "explanation": "__str__ is intended for end-user readability; __repr__ is for developers and debugging."
+    },
+    {
+      "id": 16,
+      "topic": "Python Core",
+      "difficulty": "Hard",
+      "question": "What is a Metaclass in Python?",
+      "options": {
+        "A": "A class that imports C libraries",
+        "B": "A class whose instances are classes; it defines how a class itself is created and structured",
+        "C": "An abstract class that cannot have methods",
+        "D": "A documentation generator"
+      },
+      "correctAnswer": "B",
+      "explanation": "Just as an object is an instance of a class, a class is an instance of a metaclass (by default `type`)."
+    },
+    {
+      "id": 17,
+      "topic": "Python Core",
+      "difficulty": "Easy",
+      "question": "What built-in function returns an iterator of tuples containing the index and item from a sequence?",
+      "options": {
+        "A": "zip()",
+        "B": "enumerate()",
+        "C": "map()",
+        "D": "filter()"
+      },
+      "correctAnswer": "B",
+      "explanation": "enumerate(sequence, start=0) yields (index, element) tuples during iteration."
+    },
+    {
+      "id": 18,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What does the `zip()` function do when passed two lists of different lengths?",
+      "options": {
+        "A": "Raises a ValueError immediately",
+        "B": "Stops iteration when the shortest input iterable is exhausted (unless using itertools.zip_longest)",
+        "C": "Pads the shorter list with zeros",
+        "D": "Cycles the shorter list infinitely"
+      },
+      "correctAnswer": "B",
+      "explanation": "Standard zip() terminates as soon as the shortest iterable finishes."
+    },
+    {
+      "id": 19,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What does `@staticmethod` mean compared to `@classmethod` in Python?",
+      "options": {
+        "A": "@staticmethod receives the class `cls` as first parameter; @classmethod does not",
+        "B": "@staticmethod receives neither `self` nor `cls`; @classmethod receives `cls` as its first parameter",
+        "C": "@staticmethod cannot be called from class instances",
+        "D": "They are identical"
+      },
+      "correctAnswer": "B",
+      "explanation": "Static methods behave like plain functions bound to class namespace; class methods receive the class object."
+    },
+    {
+      "id": 20,
+      "topic": "Python Core",
+      "difficulty": "Hard",
+      "question": "What is the difference between multiprocessing and multithreading in standard CPython?",
+      "options": {
+        "A": "Multithreading bypasses the GIL; multiprocessing does not",
+        "B": "Multiprocessing runs separate processes with separate memory spaces and GILs across multiple CPU cores; multithreading shares one GIL and memory space",
+        "C": "Multiprocessing is for I/O-bound tasks only",
+        "D": "Threads cannot communicate with each other"
+      },
+      "correctAnswer": "B",
+      "explanation": "Multiprocessing bypasses GIL restrictions for CPU-bound tasks by spawning independent processes."
+    },
+    {
+      "id": 21,
+      "topic": "Python Core",
+      "difficulty": "Easy",
+      "question": "How are comments written in Python?",
+      "options": {
+        "A": "// comment",
+        "B": "# comment",
+        "C": "/* comment */",
+        "D": "<!-- comment -->"
+      },
+      "correctAnswer": "B",
+      "explanation": "Single line comments in Python begin with the hash `#` character."
+    },
+    {
+      "id": 22,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What is the output of `type(lambda x: x)` in Python?",
+      "options": {
+        "A": "<class 'function'>",
+        "B": "<class 'lambda'>",
+        "C": "<class 'method'>",
+        "D": "<class 'object'>"
+      },
+      "correctAnswer": "A",
+      "explanation": "Lambda expressions create anonymous function instances whose type is `function`."
+    },
+    {
+      "id": 23,
+      "topic": "Python Core",
+      "difficulty": "Hard",
+      "question": "What does `__slots__` do when defined in a Python class?",
+      "options": {
+        "A": "Restricts object creation to 5 instances",
+        "B": "Prevents creation of instance `__dict__`, reducing memory consumption and speeding attribute access for millions of instances",
+        "C": "Encodes the class attributes into JSON",
+        "D": "Locks the class against inheritance"
+      },
+      "correctAnswer": "B",
+      "explanation": "__slots__ reserves space for a fixed set of attributes, avoiding overhead of per-instance dictionaries."
+    },
+    {
+      "id": 24,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What is the purpose of `collections.defaultdict`?",
+      "options": {
+        "A": "It restricts dictionary keys to string types",
+        "B": "It provides a default value for non-existent keys via a factory callable, avoiding KeyError exceptions",
+        "C": "It sorts keys automatically",
+        "D": "It creates an immutable dictionary"
+      },
+      "correctAnswer": "B",
+      "explanation": "defaultdict calls a default factory (e.g., list, int) when accessing missing keys rather than raising KeyError."
+    },
+    {
+      "id": 25,
+      "topic": "Python Core",
+      "difficulty": "Easy",
+      "question": "Which statement is used to catch and handle exceptions in Python?",
+      "options": {
+        "A": "catch { ... }",
+        "B": "try ... except",
+        "C": "try ... catch",
+        "D": "rescue { ... }"
+      },
+      "correctAnswer": "B",
+      "explanation": "Python uses `try: ... except Exception as e:` blocks for structured exception handling."
+    },
+    {
+      "id": 26,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What does `functools.lru_cache` decorator do?",
+      "options": {
+        "A": "Encrypts function arguments",
+        "B": "Memoizes function return values up to a maximum cache size using Least Recently Used replacement policy",
+        "C": "Limits function execution time to 1 second",
+        "D": "Runs the function on a worker thread"
+      },
+      "correctAnswer": "B",
+      "explanation": "lru_cache wraps functions with a memoizing callable, eliminating redundant computations for identical arguments."
+    },
+    {
+      "id": 27,
+      "topic": "Python Core",
+      "difficulty": "Hard",
+      "question": "What is the difference between an Iterable and an Iterator in Python?",
+      "options": {
+        "A": "An iterable implements __next__(); an iterator implements __len__()",
+        "B": "An iterable implements __iter__() returning an iterator; an iterator implements __next__() returning values and raising StopIteration when exhausted",
+        "C": "They are completely interchangeable terms",
+        "D": "Iterators cannot be used in for loops"
+      },
+      "correctAnswer": "B",
+      "explanation": "Iterables can be looped over (producing iterators); iterators represent streams of data accessed via next()."
+    },
+    {
+      "id": 28,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What is the result of `bool([])` and `bool({})` in Python?",
+      "options": {
+        "A": "True, True",
+        "B": "False, False",
+        "C": "True, False",
+        "D": "None, None"
+      },
+      "correctAnswer": "B",
+      "explanation": "Empty collections (lists, dicts, tuples, sets, strings) and 0 evaluate to False in boolean contexts."
+    },
+    {
+      "id": 29,
+      "topic": "Python Core",
+      "difficulty": "Medium",
+      "question": "What does `any([False, False, True])` and `all([False, False, True])` evaluate to?",
+      "options": {
+        "A": "True, False",
+        "B": "False, True",
+        "C": "True, True",
+        "D": "False, False"
+      },
+      "correctAnswer": "A",
+      "explanation": "any() returns True if at least one item is truthy; all() requires every single item to be truthy."
+    },
+    {
+      "id": 30,
+      "topic": "Python Core",
+      "difficulty": "Hard",
+      "question": "In Python context managers, what must the `__exit__` method return to suppress an exception that occurred inside the `with` block?",
+      "options": {
+        "A": "None",
+        "B": "A truthy value (e.g. True)",
+        "C": "False",
+        "D": "An integer code 0"
+      },
+      "correctAnswer": "B",
+      "explanation": "If __exit__ returns True, Python suppresses the active exception and continues execution after the with block."
     }
   ],
   "ROLE_FULLSTACK_DEV": [
     {
       "id": 1,
-      "topic": "React & Architecture",
+      "topic": "React Architecture",
       "difficulty": "Medium",
       "question": "Why should you never mutate React state directly (e.g., `state.count = 5`)?",
       "options": {
         "A": "It will throw a fatal JavaScript syntax error",
-        "B": "React relies on shallow reference equality checks; direct mutation does not trigger reconciliation and component re-rendering",
+        "B": "React relies on shallow reference equality checks; direct mutation skips reconciliation and does not trigger re-rendering",
         "C": "Direct mutation corrupts the backend database automatically",
-        "D": "React freeze objects make mutations physically impossible in production"
+        "D": "Objects in JavaScript are strictly read-only"
       },
       "correctAnswer": "B",
-      "explanation": "React compares previous and new state references (`Object.is`). If you mutate existing objects directly, the reference does not change, causing React to skip UI updates."
+      "explanation": "React compares previous and next references; mutating an object retains its memory address, skipping UI updates."
+    },
+    {
+      "id": 2,
+      "topic": "Frontend Core",
+      "difficulty": "Medium",
+      "question": "What is the Virtual DOM in React?",
+      "options": {
+        "A": "A browser extension that speeds up internet connections",
+        "B": "An in-memory lightweight JavaScript representation of the real DOM tree used to compute minimal DOM patch diffs",
+        "C": "A shadow database hosted on CDN",
+        "D": "A WebGL rendering canvas"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Virtual DOM calculates changes in memory (reconciliation), batching minimal atomic writes to the real DOM."
+    },
+    {
+      "id": 3,
+      "topic": "React Hooks",
+      "difficulty": "Easy",
+      "question": "What is the primary purpose of the `useEffect` hook in React functional components?",
+      "options": {
+        "A": "To compile TypeScript to JavaScript",
+        "B": "To perform side effects (data fetching, subscriptions, manual DOM manipulation) after render",
+        "C": "To style CSS components",
+        "D": "To replace Redux store management"
+      },
+      "correctAnswer": "B",
+      "explanation": "useEffect coordinates side-effects in functional components, executing according to dependency array changes."
+    },
+    {
+      "id": 4,
+      "topic": "Web Security",
+      "difficulty": "Medium",
+      "question": "What is Cross-Site Scripting (XSS)?",
+      "options": {
+        "A": "An attack where malicious JavaScript code is injected into web pages viewed by other users",
+        "B": "An attack that cracks database root passwords via brute force",
+        "C": "Overloading web servers with fraudulent TCP packets",
+        "D": "Using multiple CSS stylesheets on the same HTML page"
+      },
+      "correctAnswer": "A",
+      "explanation": "XSS executes arbitrary attacker scripts in victim browsers, stealing cookies or session credentials."
+    },
+    {
+      "id": 5,
+      "topic": "Frontend Core",
+      "difficulty": "Easy",
+      "question": "What does CSS Box Model consist of, from innermost to outermost?",
+      "options": {
+        "A": "Content, Padding, Border, Margin",
+        "B": "Margin, Border, Padding, Content",
+        "C": "Content, Margin, Border, Padding",
+        "D": "Border, Content, Padding, Margin"
+      },
+      "correctAnswer": "A",
+      "explanation": "The CSS box model layers are Content -> Padding -> Border -> Margin."
+    },
+    {
+      "id": 6,
+      "topic": "React Hooks",
+      "difficulty": "Medium",
+      "question": "What happens when you pass an empty dependency array `[]` to `useEffect`?",
+      "options": {
+        "A": "The effect runs on every single component re-render",
+        "B": "The effect runs only once after the initial component mount",
+        "C": "The effect is disabled and never runs",
+        "D": "The component immediately unmounts"
+      },
+      "correctAnswer": "B",
+      "explanation": "An empty dependency array [] indicates the effect depends on no changing state, running once on mount."
+    },
+    {
+      "id": 7,
+      "topic": "Fullstack Integration",
+      "difficulty": "Medium",
+      "question": "What is the purpose of the CORS preflight OPTIONS request?",
+      "options": {
+        "A": "To compress API responses with gzip",
+        "B": "To verify whether the server permits the actual cross-origin request method, headers, and credentials before sending it",
+        "C": "To cache the HTML payload on proxy servers",
+        "D": "To encrypt payload parameters with TLS"
+      },
+      "correctAnswer": "B",
+      "explanation": "Browsers automatically send preflight OPTIONS requests for non-simple cross-origin requests to check permissions."
+    },
+    {
+      "id": 8,
+      "topic": "JavaScript Core",
+      "difficulty": "Medium",
+      "question": "What is the difference between `null` and `undefined` in JavaScript?",
+      "options": {
+        "A": "`null` is assigned automatically to uninitialized variables; `undefined` represents intentional absence",
+        "B": "`undefined` represents a declared variable with no assigned value; `null` is an assigned primitive representing intentional absence of object",
+        "C": "They are completely identical with no differences",
+        "D": "`null` has type 'null'; `undefined` has type 'object'"
+      },
+      "correctAnswer": "B",
+      "explanation": "undefined means variable is declared without value; null represents an explicit assignment of 'no value'."
+    },
+    {
+      "id": 9,
+      "topic": "React Architecture",
+      "difficulty": "Medium",
+      "question": "What is the purpose of the `key` prop when rendering lists in React?",
+      "options": {
+        "A": "To style each list element uniquely",
+        "B": "To give elements a stable identity, helping React determine which items have changed, added, or removed during reconciliation",
+        "C": "To encrypt list data before rendering",
+        "D": "To index database primary keys automatically"
+      },
+      "correctAnswer": "B",
+      "explanation": "Keys enable efficient DOM reconciliation, preventing unnecessary DOM destroys and recreations on list updates."
+    },
+    {
+      "id": 10,
+      "topic": "Frontend Core",
+      "difficulty": "Medium",
+      "question": "What is the difference between `flexbox` and `CSS Grid`?",
+      "options": {
+        "A": "Flexbox is for 1-dimensional layouts (rows or columns); CSS Grid is for 2-dimensional layouts (rows and columns simultaneously)",
+        "B": "Flexbox works only on mobile screens; CSS Grid is for desktops",
+        "C": "CSS Grid is deprecated in modern CSS",
+        "D": "Flexbox requires JavaScript"
+      },
+      "correctAnswer": "A",
+      "explanation": "Flexbox is designed for linear 1D component distribution; Grid manages complex 2D spatial layouts."
+    },
+    {
+      "id": 11,
+      "topic": "JavaScript Core",
+      "difficulty": "Hard",
+      "question": "What is Event Bubbling in JavaScript DOM events?",
+      "options": {
+        "A": "Events fire exclusively on the document root element",
+        "B": "When an event triggers on an element, it first runs handlers on that element, then bubbles up to its parents all the way to the document root",
+        "C": "Events are queued in localStorage",
+        "D": "Canceling all keyboard inputs"
+      },
+      "correctAnswer": "B",
+      "explanation": "Event bubbling propagates events upwards through ancestor DOM elements unless stopped by event.stopPropagation()."
+    },
+    {
+      "id": 12,
+      "topic": "React Hooks",
+      "difficulty": "Medium",
+      "question": "What does the `useMemo` hook do in React?",
+      "options": {
+        "A": "Creates persistent database connections",
+        "B": "Memoizes the result of an expensive calculation, recalculating only when specified dependencies change",
+        "C": "Caches network API calls in browser cookies",
+        "D": "Saves component state to localStorage"
+      },
+      "correctAnswer": "B",
+      "explanation": "useMemo caches computed values to prevent expensive recalculations during component re-renders."
+    },
+    {
+      "id": 13,
+      "topic": "Fullstack Integration",
+      "difficulty": "Hard",
+      "question": "What is CSRF (Cross-Site Request Forgery) and how is it prevented?",
+      "options": {
+        "A": "Injecting malicious scripts into URLs; prevented with HTTPS",
+        "B": "Tricking an authenticated user's browser into executing unwanted actions on a trusted site; prevented using Anti-CSRF tokens and SameSite cookies",
+        "C": "A database transaction deadlock",
+        "D": "Server CPU throttling attack"
+      },
+      "correctAnswer": "B",
+      "explanation": "CSRF exploits ambient browser authentication (cookies); prevented by checking unpredictable CSRF tokens and SameSite=Strict cookies."
+    },
+    {
+      "id": 14,
+      "topic": "JavaScript Core",
+      "difficulty": "Medium",
+      "question": "What is a Closure in JavaScript?",
+      "options": {
+        "A": "A method that terminates an open browser window",
+        "B": "A function bundled together with references to its surrounding lexical state (outer scope variables) even after the outer function has returned",
+        "C": "A syntax error that halts execution",
+        "D": "An immediately invoked constructor"
+      },
+      "correctAnswer": "B",
+      "explanation": "Closures give functions access to outer lexical scope variables even after outer functions have executed."
+    },
+    {
+      "id": 15,
+      "topic": "Frontend Performance",
+      "difficulty": "Medium",
+      "question": "What is Lazy Loading of components in React (`React.lazy()` and `Suspense`)?",
+      "options": {
+        "A": "Delaying component rendering until the user clicks a button",
+        "B": "Code-splitting the bundle into separate chunks that are downloaded over the network only when the component is about to be rendered",
+        "C": "Compressing images with WebP",
+        "D": "Running component code in a web worker"
+      },
+      "correctAnswer": "B",
+      "explanation": "React.lazy dynamically imports components on demand, reducing initial bundle size and accelerating initial load."
+    },
+    {
+      "id": 16,
+      "topic": "Fullstack Integration",
+      "difficulty": "Easy",
+      "question": "What format is most universally used for data exchange between frontend JavaScript and backend REST APIs?",
+      "options": {
+        "A": "XML",
+        "B": "JSON (JavaScript Object Notation)",
+        "C": "CSV",
+        "D": "Protocol Buffers only"
+      },
+      "correctAnswer": "B",
+      "explanation": "JSON is lightweight, human-readable, and natively parsed by JavaScript and modern backend frameworks."
+    },
+    {
+      "id": 17,
+      "topic": "React Hooks",
+      "difficulty": "Medium",
+      "question": "What is the difference between `useCallback` and `useMemo`?",
+      "options": {
+        "A": "useCallback memoizes a function instance; useMemo memoizes the computed result of a function",
+        "B": "useCallback is for API calls; useMemo is for styling",
+        "C": "They are exact synonyms in React",
+        "D": "useCallback runs only on unmount"
+      },
+      "correctAnswer": "A",
+      "explanation": "useCallback(fn, deps) returns memoized callback; useMemo(() => val, deps) returns memoized value."
+    },
+    {
+      "id": 18,
+      "topic": "Web Security",
+      "difficulty": "Hard",
+      "question": "What is a Content Security Policy (CSP)?",
+      "options": {
+        "A": "A document detailing user privacy terms",
+        "B": "An HTTP response header that restricts which resource domains (scripts, styles, images) a browser is permitted to load and execute",
+        "C": "A database encryption protocol",
+        "D": "A stylesheet validation tool"
+      },
+      "correctAnswer": "B",
+      "explanation": "CSP prevents XSS and code injection by declaring trusted sources of executable scripts in HTTP headers."
+    },
+    {
+      "id": 19,
+      "topic": "Frontend Core",
+      "difficulty": "Medium",
+      "question": "What does the JavaScript event loop do when the call stack is empty?",
+      "options": {
+        "A": "Shuts down the browser tab",
+        "B": "Checks the microtask queue (Promises), executes all microtasks, and then processes the next task from the macrotask queue (setTimeout, I/O)",
+        "C": "Re-renders the entire HTML page",
+        "D": "Clears all variable memories"
+      },
+      "correctAnswer": "B",
+      "explanation": "The event loop continuously dequeues microtasks (Promise jobs) before proceeding to macrotasks."
+    },
+    {
+      "id": 20,
+      "topic": "React Architecture",
+      "difficulty": "Hard",
+      "question": "What problem does 'Prop Drilling' describe in React, and how is it solved?",
+      "options": {
+        "A": "Calling props before initialization; solved with TypeScript",
+        "B": "Passing data through multiple intermediate component layers that do not need it; solved using React Context or global state managers",
+        "C": "A circular dependency between two components",
+        "D": "State mutations inside child components"
+      },
+      "correctAnswer": "B",
+      "explanation": "Prop drilling forces deep component hierarchies to thread unused props; Context API broadcasts state directly."
+    },
+    {
+      "id": 21,
+      "topic": "Fullstack Integration",
+      "difficulty": "Medium",
+      "question": "What is the purpose of WebSockets compared to standard HTTP requests?",
+      "options": {
+        "A": "WebSockets encrypt data; HTTP does not",
+        "B": "WebSockets establish a persistent, bidirectional, full-duplex communication channel over a single TCP connection for real-time data",
+        "C": "WebSockets work only on mobile browsers",
+        "D": "WebSockets replace CSS styles"
+      },
+      "correctAnswer": "B",
+      "explanation": "WebSockets enable persistent full-duplex messaging between client and server without HTTP polling overhead."
+    },
+    {
+      "id": 22,
+      "topic": "JavaScript Core",
+      "difficulty": "Easy",
+      "question": "What is the output of `typeof []` and `typeof null` in JavaScript?",
+      "options": {
+        "A": "'array', 'null'",
+        "B": "'object', 'object'",
+        "C": "'list', 'undefined'",
+        "D": "'array', 'undefined'"
+      },
+      "correctAnswer": "B",
+      "explanation": "In JavaScript, arrays and null both return 'object' due to legacy ECMAScript implementation details."
+    },
+    {
+      "id": 23,
+      "topic": "React Architecture",
+      "difficulty": "Medium",
+      "question": "What is a React Higher-Order Component (HOC)?",
+      "options": {
+        "A": "A component with higher z-index in CSS",
+        "B": "A function that takes a component as an argument and returns a new enhanced component with additional props or behavior",
+        "C": "A component rendered on top of the root element",
+        "D": "An asynchronous server-side function"
+      },
+      "correctAnswer": "B",
+      "explanation": "HOCs are pure functions that enhance components with reusable logic (e.g., withAuth(Dashboard))."
+    },
+    {
+      "id": 24,
+      "topic": "Frontend Performance",
+      "difficulty": "Medium",
+      "question": "What is Debouncing in event handling (e.g., live search input)?",
+      "options": {
+        "A": "Executing an action on every keystroke immediately",
+        "B": "Delaying execution of a function until a specified cooldown time has passed without any new events triggering",
+        "C": "Caching API responses in IndexedDB",
+        "D": "Limiting request volume to 1 per second constantly"
+      },
+      "correctAnswer": "B",
+      "explanation": "Debouncing waits for user typing to pause before invoking search APIs, preventing wasteful burst calls."
+    },
+    {
+      "id": 25,
+      "topic": "Fullstack Integration",
+      "difficulty": "Hard",
+      "question": "What does Server-Side Rendering (SSR) in frameworks like Next.js achieve compared to Client-Side Rendering (CSR)?",
+      "options": {
+        "A": "It eliminates backend databases completely",
+        "B": "It generates initial HTML on the server before sending it to the client, improving First Contentful Paint (FCP) and SEO indexing",
+        "C": "It disables JavaScript execution in the browser",
+        "D": "It runs React directly on the database engine"
+      },
+      "correctAnswer": "B",
+      "explanation": "SSR renders static HTML server-side, enabling web crawlers to index content and improving initial load speed."
+    },
+    {
+      "id": 26,
+      "topic": "JavaScript Core",
+      "difficulty": "Medium",
+      "question": "What does `Promise.all([p1, p2, p3])` do if one of the promises rejects?",
+      "options": {
+        "A": "It waits for other promises and returns successfully with partial results",
+        "B": "It immediately rejects with the error of the first rejected promise (fail-fast behavior)",
+        "C": "It retries the failed promise 3 times",
+        "D": "It converts the rejection into an empty array"
+      },
+      "correctAnswer": "B",
+      "explanation": "Promise.all fails fast: if any constituent promise rejects, the returned aggregate promise immediately rejects."
+    },
+    {
+      "id": 27,
+      "topic": "Web Security",
+      "difficulty": "Medium",
+      "question": "What does the `SameSite=Lax` attribute on cookies provide?",
+      "options": {
+        "A": "Blocks cookies from being sent on any cross-site top-level navigation",
+        "B": "Withholds cookies on cross-site subrequests (like images or iframes), but permits them when users navigate to the origin site directly (GET links)",
+        "C": "Encrypts cookie contents using RSA-2048",
+        "D": "Deletes cookies after 10 minutes"
+      },
+      "correctAnswer": "B",
+      "explanation": "SameSite=Lax provides a balanced defense against CSRF while preserving user session continuity on top-level clicks."
+    },
+    {
+      "id": 28,
+      "topic": "Frontend Core",
+      "difficulty": "Medium",
+      "question": "What is the difference between `localStorage` and `sessionStorage`?",
+      "options": {
+        "A": "localStorage data persists until explicitly cleared; sessionStorage data is deleted when the browser tab/session closes",
+        "B": "localStorage holds up to 500MB; sessionStorage holds 5MB",
+        "C": "sessionStorage data is sent to server in HTTP headers automatically",
+        "D": "localStorage works only in private browsing mode"
+      },
+      "correctAnswer": "A",
+      "explanation": "localStorage persists across browser restarts; sessionStorage lives only for the lifetime of that specific tab."
+    },
+    {
+      "id": 29,
+      "topic": "React Hooks",
+      "difficulty": "Hard",
+      "question": "What is the purpose of the `useRef` hook in React?",
+      "options": {
+        "A": "To trigger component re-render when a value changes",
+        "B": "To persist a mutable reference across renders WITHOUT triggering re-render, and to hold direct references to DOM nodes",
+        "C": "To memoize expensive calculation outputs",
+        "D": "To manage global application routes"
+      },
+      "correctAnswer": "B",
+      "explanation": "useRef holds mutable values that persist across renders without causing component reconciliation updates."
+    },
+    {
+      "id": 30,
+      "topic": "Fullstack Integration",
+      "difficulty": "Medium",
+      "question": "What is the role of an API Gateway in modern microservice architectures?",
+      "options": {
+        "A": "To compile frontend React code into native Android apps",
+        "B": "To act as a single entry point handling routing, authentication, rate limiting, and telemetry before requests reach backend microservices",
+        "C": "To replace DNS servers worldwide",
+        "D": "To store database backups in S3"
+      },
+      "correctAnswer": "B",
+      "explanation": "An API gateway aggregates microservice endpoints, managing auth, SSL, rate-limits, and routing centrally."
     }
   ]
 }

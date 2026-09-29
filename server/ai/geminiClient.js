@@ -94,65 +94,77 @@ export class GeminiService {
   }
 
   /**
-   * Generates dynamic role-specific MCQ interview questions
+   * Returns a randomized subset of questions from the 30-question curated bank using Fisher-Yates shuffle
+   */
+  getRandomQuestionsFromBank(jobRoleId, count = 5, difficulty = 'Mixed') {
+    try {
+      const fallbackPath = path.join(__dirname, '../data/fallbackQuestions.json');
+      if (fs.existsSync(fallbackPath)) {
+        this.fallbackQuestions = JSON.parse(fs.readFileSync(fallbackPath, 'utf8'));
+      }
+    } catch (e) {
+      // use in-memory fallback
+    }
+
+    const roleBank = this.fallbackQuestions[jobRoleId] || this.fallbackQuestions['ROLE_DATA_SCIENTIST'] || [];
+    let pool = [...roleBank];
+
+    // Optional difficulty filtering if requested and sufficient items exist
+    if (difficulty && difficulty !== 'Mixed') {
+      const filtered = pool.filter(q => q.difficulty?.toLowerCase() === difficulty.toLowerCase());
+      if (filtered.length >= count) {
+        pool = filtered;
+      }
+    }
+
+    // Fisher-Yates shuffle algorithm for guaranteed uniform randomization on every access
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+
+    const selected = pool.slice(0, Math.min(Number(count) || 5, pool.length));
+
+    return selected.map((q, idx) => {
+      // Shuffle the 4 options (A, B, C, D) dynamically so the correct answer is uniformly distributed across all letters
+      const origCorrectText = q.options ? q.options[q.correctAnswer] : null;
+      const optionTexts = q.options ? Object.values(q.options) : [];
+
+      // Fisher-Yates shuffle the option texts
+      for (let k = optionTexts.length - 1; k > 0; k--) {
+        const r = Math.floor(Math.random() * (k + 1));
+        [optionTexts[k], optionTexts[r]] = [optionTexts[r], optionTexts[k]];
+      }
+
+      const letters = ['A', 'B', 'C', 'D'];
+      const shuffledOptions = {};
+      let newCorrectAnswer = q.correctAnswer;
+
+      letters.forEach((letter, i) => {
+        shuffledOptions[letter] = optionTexts[i];
+        if (origCorrectText && optionTexts[i] === origCorrectText) {
+          newCorrectAnswer = letter;
+        }
+      });
+
+      return {
+        ...q,
+        id: idx + 1,
+        options: shuffledOptions,
+        correctAnswer: newCorrectAnswer
+      };
+    });
+  }
+
+  /**
+   * Generates role-specific MCQ interview questions drawn from the 30-question bank in randomized order
    */
   async generateInterviewQuestions({ jobRoleTitle, jobRoleId, requiredSkills, topics, count = 5, difficulty = 'Mixed' }) {
-    const prompt = `
-Generate an interview assessment paper with exactly ${count} multiple-choice questions (MCQs) for the job role: "${jobRoleTitle}".
-Required Skills: ${Array.isArray(requiredSkills) ? requiredSkills.join(', ') : requiredSkills}
-Core Topics: ${Array.isArray(topics) ? topics.join(', ') : topics}
-Target Difficulty: ${difficulty}
-
-Rules:
-1. Provide practical, insightful questions assessing real understanding (not trivial syntax memorization).
-2. Exactly 4 distinct options (A, B, C, D) for each question.
-3. Mark the single correct option letter ("A", "B", "C", or "D").
-4. Include a concise, rigorous explanation of why the correct option is right.
-5. Tag each question with its specific Topic and Difficulty.
-
-Return strictly valid JSON adhering to this schema:
-{
-  "questions": [
-    {
-      "id": 1,
-      "question": "Question text here",
-      "options": {
-        "A": "Option text",
-        "B": "Option text",
-        "C": "Option text",
-        "D": "Option text"
-      },
-      "correctAnswer": "A",
-      "topic": "Topic Name",
-      "difficulty": "Easy|Medium|Hard",
-      "explanation": "Detailed explanation of correct concept"
-    }
-  ]
-}`;
-
-    const systemInstruction = 'You are an expert technical interviewer and AI curriculum designer. Return strictly pure JSON without markdown or commentary.';
-
-    try {
-      if (this.isKeyConfigured()) {
-        const result = await this._callGeminiApi(prompt, systemInstruction);
-        if (result && Array.isArray(result.questions) && result.questions.length > 0) {
-          return {
-            source: 'GEMINI_AI',
-            modelUsed: this.model,
-            questions: result.questions
-          };
-        }
-      }
-    } catch (err) {
-      console.warn('[GeminiService] AI generation failed, using structured offline fallback bank:', err.message);
-    }
-
-    // High quality offline fallback guarantee
-    const fallbackList = this.fallbackQuestions[jobRoleId] || this.fallbackQuestions['ROLE_DATA_SCIENTIST'] || [];
+    const randomizedQuestions = this.getRandomQuestionsFromBank(jobRoleId, count, difficulty);
     return {
-      source: 'OFFLINE_QUESTION_BANK',
-      notice: 'Served from offline question bank (Gemini fallback active)',
-      questions: fallbackList.slice(0, count)
+      source: 'CURATED_QUESTION_BANK',
+      notice: 'Drawn dynamically from 30 curated questions in randomized order',
+      questions: randomizedQuestions
     };
   }
 

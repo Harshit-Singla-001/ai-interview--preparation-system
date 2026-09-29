@@ -56,7 +56,7 @@ GEMINI_FALLBACK_MODEL=gemini-2.5-flash
 NODE_ENV=development
 ```
 
-> **Note**: If `GEMINI_API_KEY` is not provided or quota limits are reached, the system activates its **offline fallback question bank** (`server/data/fallbackQuestions.json`), ensuring your college demonstration and viva evaluation always work without interruption.
+> **Note**: The system includes a curated bank of **180 high-quality technical questions** (30 questions for each of the 6 job roles in `server/data/fallbackQuestions.json`). On every mock test attempt, questions are selected and shuffled using the **Fisher-Yates algorithm** in random order (for 5, 10, or 15 questions), eliminating external API quota limits and latency. Semantic answer explanation evaluation is powered by Gemini AI when configured.
 
 ---
 

@@ -11,17 +11,16 @@ const geminiService = new GeminiService();
 
 export const generateQuestions = async (req, res) => {
   try {
-    const { jobRoleId, count = 5, difficulty = 'Mixed', topic = 'All Topics' } = req.body || {};
+    const { jobRoleId, count = 5, difficulty = 'Mixed' } = req.body || {};
 
     const role = jobRoles.find(r => r.id === jobRoleId) || jobRoles[0];
-    const topicsToCover = topic && topic !== 'All Topics' ? [topic] : (role ? role.importantTopics : []);
+    const safeCount = [5, 10, 15].includes(Number(count)) ? Number(count) : (Number(count) >= 15 ? 15 : Number(count) >= 10 ? 10 : 5);
 
     const result = await geminiService.generateInterviewQuestions({
       jobRoleTitle: role ? role.title : 'Software Engineer',
       jobRoleId: role ? role.id : 'ROLE_DATA_SCIENTIST',
       requiredSkills: role ? role.requiredSkills : [],
-      topics: topicsToCover,
-      count: Math.min(Math.max(Number(count) || 5, 3), 30),
+      count: safeCount,
       difficulty
     });
 
@@ -35,14 +34,14 @@ export const generateQuestions = async (req, res) => {
     });
   } catch (err) {
     console.error('Error generating questions, using emergency fallback bank:', err.message);
-    const fallbackList = geminiService.fallbackQuestions[req.body?.jobRoleId] || geminiService.fallbackQuestions['ROLE_DATA_SCIENTIST'] || [];
+    const randomized = geminiService.getRandomQuestionsFromBank(req.body?.jobRoleId, Number(req.body?.count) || 5, req.body?.difficulty);
     return res.json({
       success: true,
       jobRole: jobRoles[0],
       source: 'OFFLINE_FALLBACK',
-      notice: 'Served from offline question bank',
-      count: fallbackList.length,
-      questions: fallbackList.slice(0, Number(req.body?.count) || 5)
+      notice: 'Served from offline question bank in randomized order',
+      count: randomized.length,
+      questions: randomized
     });
   }
 };
