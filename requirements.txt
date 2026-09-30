@@ -1,0 +1,35 @@
+# =============================================================================
+# AI INTERVIEW PREPARATION SYSTEM - EXTERNAL LIBRARIES & DEPENDENCIES
+# =============================================================================
+# System Architecture:
+# - Python Launcher & Automation Engine (app.py)
+# - Classical AI Search Algorithms & Graph Reasoning (BFS, DFS, UCS, Greedy, A*)
+# - Generative AI Service (Google Gemini API)
+# =============================================================================
+
+# 1. Environment & Application Launcher
+python-dotenv>=1.0.1
+requests>=2.31.0
+
+# 2. Generative AI (Google Gemini SDK)
+google-genai>=1.0.0
+google-generativeai>=0.8.0
+
+# 3. AI Graph Search & Knowledge Modeling (Syllabus: BFS, DFS, UCS, Greedy, A*)
+networkx>=3.0
+numpy>=1.24.0
+
+# =============================================================================
+# NOTE: FULL-STACK JAVASCRIPT / NODE.JS DEPENDENCIES (Managed via npm)
+# =============================================================================
+# Backend API Engine (/server):
+#   - express (^4.21.2)  : REST API routing and middleware framework
+#   - cors (^2.8.5)      : Cross-Origin Resource Sharing middleware
+#   - dotenv (^16.4.7)   : Environment variable configuration
+#
+# Frontend Web Client (/client):
+#   - react (^18.3.1)    : Component-based UI framework
+#   - react-dom (^18.3.1): DOM rendering engine for React
+#   - vite (^5.4.11)     : Fast frontend build tool & development server
+#   - @vitejs/plugin-react (^4.3.4): React Fast Refresh plugin for Vite
+# =============================================================================
